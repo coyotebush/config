@@ -31,3 +31,18 @@
 [submodule "vim/bundle/color-zenburn"]
 	path = vim/bundle/color-zenburn
 	url = https://github.com/jnurmine/Zenburn.git
+[submodule "vim/bundle/css-color"]
+	path = vim/bundle/css-color
+	url = https://github.com/skammer/vim-css-color.git
+[submodule "vim/bundle/nerdtree"]
+	path = vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "vim/bundle/color-darkspectrum"]
+	path = vim/bundle/color-darkspectrum
+	url = https://github.com/vim-scripts/darkspectrum.git
+[submodule "vim/bundle/color-vividchalk"]
+	path = vim/bundle/color-vividchalk
+	url = https://github.com/tpope/vim-vividchalk.git
+[submodule "vim/bundle/jslint"]
+	path = vim/bundle/jslint
+	url = https://github.com/hallettj/jslint.vim.git
