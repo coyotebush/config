@@ -13,3 +13,21 @@
 [submodule "vim/bundle/haskellConceal"]
 	path = vim/bundle/haskellConceal
 	url = https://github.com/Twinside/vim-haskellConceal.git
+[submodule "vim/bundle/color-jellybeans"]
+	path = vim/bundle/color-jellybeans
+	url = https://github.com/nanotech/jellybeans.vim.git
+[submodule "vim/bundle/color-peaksea"]
+	path = vim/bundle/color-peaksea
+	url = https://github.com/vim-scripts/peaksea.git
+[submodule "vim/bundle/color-solarized"]
+	path = vim/bundle/color-solarized
+	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "vim/bundle/color-vombato"]
+	path = vim/bundle/color-vombato
+	url = https://github.com/molok/vim-vombato-colorscheme.git
+[submodule "vim/bundle/color-wombat"]
+	path = vim/bundle/color-wombat
+	url = https://github.com/vim-scripts/Wombat.git
+[submodule "vim/bundle/color-zenburn"]
+	path = vim/bundle/color-zenburn
+	url = https://github.com/jnurmine/Zenburn.git
