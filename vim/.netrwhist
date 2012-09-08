@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/corey/Programming/projects/master_calendar/.git/refs/remotes'
-let g:netrw_dirhist_2='/home/corey/Programming/projects/master_calendar/.git/refs/remotes/origin'
-let g:netrw_dirhist_3='/home/corey/Programming/projects/master_calendar/.git/modules/fullcalendar'
-let g:netrw_dirhist_4='/home/corey/Programming/commonmeals/.git/modules/www/master_calendar'
-let g:netrw_dirhist_5='/home/corey/.subversion/auth/svn.simple'

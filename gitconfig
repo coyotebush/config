@@ -1,8 +1,6 @@
 [user]
 	email = coyotebush22@gmail.com
 	name = 
-[github]
-	user = coyotebush
 [core]
 	excludesfile = /home/corey/.gitignore
 [alias]
