@@ -1,7 +1,6 @@
 set nocompatible
-"set exrc
 
-"call pathogen#runtime_append_all_bundles() 
+call pathogen#infect() 
 
 set mouse=a
 set number
