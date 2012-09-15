@@ -26,7 +26,7 @@ main = do
 
 -- -------------------------- Workspaces -------------------- --
 wkW = "www"; wkC = "com"; wkS = "sch"; wkD = "dev"; wkY = "sys"
-myWorkspaces = ["1", wkW, wkC, wkS, wkD, wkY, "7", "8", "9"]
+myWorkspaces = ["1", wkW, wkC, wkS, wkD, wkY, "7", "8", "9", "10", "11", "12"]
 
 -- -------------------------- Keys -------------------------- --
 myKeys conf@(XConfig {XMonad.modMask = modm}) = fromList $
@@ -73,7 +73,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = fromList $
     -- mod-[1..9], Switch to workspace N
     -- mod-shift-[1..9], Move client to workspace N
     [((m .|. modm, k), windows $ f i)
-        | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
+        | (i, k) <- zip (XMonad.workspaces conf) ([xK_1 .. xK_9] ++ [xK_0, xK_minus, xK_equal])
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
     ++
 
