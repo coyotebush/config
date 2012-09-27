@@ -49,3 +49,6 @@
 [submodule "oh-my-zsh-custom/plugins/zsh-syntax-highlighting"]
 	path = oh-my-zsh-custom/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "vim/bundle/surround"]
+	path = vim/bundle/surround
+	url = https://github.com/tpope/vim-surround.git
