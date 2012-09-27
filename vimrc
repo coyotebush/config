@@ -8,6 +8,7 @@ set autoindent
 filetype plugin indent on
 syntax on
 syntax keyword cTodo contained DEBUG
+au BufEnter *.md setf markdown
 
 set wildignore+=*.hi
 
