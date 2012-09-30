@@ -31,6 +31,7 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 alias sat='sudo aptitude'
 alias sudo='nocorrect sudo'
+alias lt='ls -lt'
 
 ZSH_HIGHLIGHT_STYLES[globbing]='bold'
 
