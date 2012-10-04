@@ -6,9 +6,9 @@ local host='%{$fg[green]%}%m%{$reset_color%}'
 local current_dir='%{$terminfo[bold]$fg[blue]%}%~%{$reset_color%}'
 local current_time='%{$fg[green]%}%T%{$reset_color%}'
 #local rvm_ruby='%{$fg[red]%}‹$(rvm-prompt i v g)›%{$reset_color%}'
-local git_branch='$(git_prompt_info)%{$reset_color%}'
+local vcs_branch='$(svn_prompt_info)$(git_prompt_info)%{$reset_color%}'
 
-PROMPT="${host}:${current_dir} ${git_branch}%B$%b "
+PROMPT="${host}:${current_dir} ${vcs_branch}%B$%b "
 RPS1="${return_code} ${current_time}"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}‹"
