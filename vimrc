@@ -18,6 +18,13 @@ set tabstop=4
 set shiftwidth=4
 set scrolloff=2
 
+set ignorecase
+set smartcase
+set gdefault
+set incsearch
+set hlsearch
+nnoremap <leader><space> :noh<cr>
+
 let &sh='bash'
 
 set background=dark
