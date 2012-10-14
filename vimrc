@@ -12,6 +12,9 @@ au BufEnter *.md setf markdown
 
 set wildignore+=*.hi
 
+set exrc
+set secure
+
 set vb
 
 set tabstop=4
