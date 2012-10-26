@@ -10,6 +10,8 @@ syntax on
 syntax keyword cTodo contained DEBUG
 au BufEnter *.md setf markdown
 
+set wildmode=longest,list,full
+set wildmenu
 set wildignore+=*.hi
 
 set exrc
