@@ -25,8 +25,8 @@ main = do
         }
 
 -- -------------------------- Workspaces -------------------- --
-wkW = "www"; wkC = "com"; wkS = "sch"; wkD = "dev"; wkY = "sys"
-myWorkspaces = ["1", wkW, wkC, wkS, wkD, wkY, "7", "8", "9", "10", "11", "12"]
+wkW = "www"; wkC = "com"; wkY = "sys"
+myWorkspaces = ["1", wkW, wkC, wkY, "305", "308", "349", "ES", "9", "10", "11", "12"]
 
 -- -------------------------- Keys -------------------------- --
 myKeys conf@(XConfig {XMonad.modMask = modm}) = fromList $
