@@ -1,6 +1,7 @@
 import XMonad
 import XMonad.Actions.TopicSpace
 import XMonad.Actions.UpdatePointer
+import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
@@ -10,11 +11,14 @@ import XMonad.Layout.Reflect
 import XMonad.Layout.ResizableTile
 import XMonad.Prompt
 import XMonad.Prompt.Workspace
+import XMonad.Util.Run ( spawnPipe )
 import qualified XMonad.StackSet as W
 import Data.Map ( fromList )
+import System.IO ( hPutStrLn )
 
 main = do
        checkTopicConfig myTopics myTopicConfig
+       xmproc <- spawnPipe "xmobar"
        xmonad $ ewmh defaultConfig
         { modMask     = mod4Mask
         , borderWidth = 2
@@ -25,7 +29,12 @@ main = do
         , keys        = myKeys
         , layoutHook  = myLayoutHook
         , manageHook  = myManageHook <+> manageDocks
-        , logHook     = updatePointer (TowardsCentre 0.3 0.3)
+        , logHook     = do
+                        updatePointer (TowardsCentre 0.3 0.3)
+                        dynamicLogWithPP $ xmobarPP
+                          { ppOutput = hPutStrLn xmproc
+                          , ppTitle = xmobarColor "white" "" . shorten 70
+                          }
         }
 
 -- -------------------------- Workspaces -------------------- --
