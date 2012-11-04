@@ -88,8 +88,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = fromList $
     --, ((modm .|. shiftMask, xK_Escape), spawn "xfce4-session-logout")
     , ((modm .|. mod1Mask,  xK_Escape), spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi")
     
-    --, ((modm .|. shiftMask, xK_s     ), spawn "scrot")
-    --, ((modm .|. mod1Mask .|. shiftMask, xK_s), spawn "sleep 1 && scrot -s")
+    , ((modm,               xK_Print ), spawn "scrot")
+    , ((modm .|. shiftMask, xK_Print ), spawn "scrot -u")
     --, ((modm .|. shiftMask, xK_s     ), spawn "xscreensaver-command --lock") --"slimlock")
     , ((modm,               xK_b     ), spawnBrowser)
     , ((modm .|. shiftMask, xK_b     ), spawnFileBrowser)
