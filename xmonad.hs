@@ -1,4 +1,5 @@
 import XMonad
+import XMonad.Actions.TopicSpace
 import XMonad.Actions.UpdatePointer
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
@@ -7,17 +8,20 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Reflect
 import XMonad.Layout.ResizableTile
+import XMonad.Prompt
+import XMonad.Prompt.Workspace
 import qualified XMonad.StackSet as W
 import Data.Map ( fromList )
 
 main = do
+       checkTopicConfig myTopics myTopicConfig
        xmonad $ ewmh defaultConfig
         { modMask     = mod4Mask
         , borderWidth = 2
         , normalBorderColor  = "#3C3C3C" -- ala Shiki-Colors themes
         , focusedBorderColor = "#A0A0A0"
         , terminal    = "xfterm4"
-        , workspaces  = myWorkspaces
+        , workspaces  = myTopics
         , keys        = myKeys
         , layoutHook  = myLayoutHook
         , manageHook  = myManageHook <+> manageDocks
@@ -25,18 +29,39 @@ main = do
         }
 
 -- -------------------------- Workspaces -------------------- --
-wkW = "www"; wkC = "com"; wkY = "sys"
-myWorkspaces = ["1", wkW, wkC, wkY, "305", "308", "349", "ES", "9", "10", "11", "12"]
+wkW = "www"; wkC = "com"
+myTopics = ["1", wkW, wkC, "sys"
+           , "305", "308", "349", "ES"
+           , "job", "finance"
+           ]
+
+myTopicConfig = defaultTopicConfig
+  { topicDirs = fromList
+      [ ("305", "School/2012-2013/CPE305/minimax")
+      , ("308", "School/2012-2013/CPE308/eclass")
+      , ("349", "School/2012-2013/CPE349")
+      , ("ES",  "School/2012-2013/ES112")
+      , ("job", "Documents/resume")
+      ]
+  , topicActions = fromList
+      [ (wkW, spawnBrowser)
+      , (wkC, spawn "icedove")
+      , ("1", spawnFileBrowser)
+      , ("finance", spawn "private gnucash")
+      ]
+  , defaultTopicAction = const $ spawnShell
+  }
+
 
 -- -------------------------- Keys -------------------------- --
 myKeys conf@(XConfig {XMonad.modMask = modm}) = fromList $
-    [ ((modm,               xK_Return ), spawn $ XMonad.terminal conf)
+    [ ((modm,               xK_Return ), spawnShell)
     --, ((modm,               xK_space ), spawn "synapse") -- "exe=`dmenu_path | dmenu -b` && eval \"exec $exe\"")
     , ((mod1Mask,           xK_Menu  ), spawn "xfdesktop --menu")
     -- , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
     , ((modm .|. shiftMask, xK_c     ), kill)
-    , ((modm,               xK_space ), sendMessage NextLayout)
-    , ((modm .|. shiftMask, xK_space), setLayout $ XMonad.layoutHook conf)
+    , ((modm,               xK_z     ), sendMessage NextLayout)
+    , ((modm .|. shiftMask, xK_z    ), setLayout $ XMonad.layoutHook conf)
     , ((modm,               xK_n     ), refresh)
     , ((modm,               xK_Tab   ), windows W.focusDown)
     , ((modm .|. shiftMask, xK_Tab   ), windows W.focusUp)
@@ -57,15 +82,18 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = fromList $
     , ((modm,               xK_period), sendMessage (IncMasterN (-1)))
     , ((modm,               xK_f     ), sendMessage ToggleStruts)
 
+    , ((modm,               xK_space ), workspacePrompt defaultXPConfig (switchTopic myTopicConfig))
+    , ((modm .|. shiftMask, xK_space ), workspacePrompt defaultXPConfig $ windows . W.shift)
+
     --, ((modm .|. shiftMask, xK_Escape), spawn "xfce4-session-logout")
     , ((modm .|. mod1Mask,  xK_Escape), spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi")
     
     --, ((modm .|. shiftMask, xK_s     ), spawn "scrot")
     --, ((modm .|. mod1Mask .|. shiftMask, xK_s), spawn "sleep 1 && scrot -s")
     --, ((modm .|. shiftMask, xK_s     ), spawn "xscreensaver-command --lock") --"slimlock")
-    , ((modm,               xK_b     ), spawn "firefox")
-    , ((modm .|. shiftMask, xK_b     ), spawn "thunar")
-    , ((modm,               xK_d     ), spawn "gvim")
+    , ((modm,               xK_b     ), spawnBrowser)
+    , ((modm .|. shiftMask, xK_b     ), spawnFileBrowser)
+    , ((modm,               xK_d     ), spawnEditor)
     , ((modm,               xK_x     ), spawn "grpn")
     ]
     ++
@@ -127,4 +155,13 @@ myManageHook = composeAll . concat $
                                ,"synapse"
                                ,"xfce4-notifyd"
                                ]
+
+-- --------------------- Helpers ---------------------------- --
+spawnBrowser = spawn "firefox"
+spawnFileBrowser = spawn "thunar"
+spawnShell = spawnInCurrent "xfterm4"
+spawnEditor = spawnInCurrent "gvim"
+
+spawnInCurrent cmd = currentTopicDir myTopicConfig >>= (spawnIn cmd)
+spawnIn cmd dir = spawn $ cmd ++ " " ++ dir
 
