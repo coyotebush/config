@@ -33,8 +33,8 @@ alias sat='sudo aptitude'
 alias sudo='nocorrect sudo'
 alias lt='ls -lt'
 
-alias 305='cd ~/School/2012-2013/CPE305/minimax'
-alias 308='cd ~/School/2012-2013/CPE308/eclass'
+alias :e=gvim
+alias :q=exit
 
 ZSH_HIGHLIGHT_STYLES[globbing]='bold'
 
