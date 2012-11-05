@@ -169,10 +169,11 @@ myManageHook = composeAll . concat $
 
 -- --------------------- Helpers ---------------------------- --
 spawnBrowser = spawn "firefox"
-spawnFileBrowser = spawnInCurrent "thunar"
-spawnShell = spawnInCurrent "xfterm4"
-spawnEditor = spawnInCurrent "gvim"
+spawnFileBrowser = spawnInCurrent $ (++) "thunar "
+spawnShell = spawnInCurrent $ (++) "xfterm4 "
+spawnEditor = spawnInCurrent $ \d -> "gvim -c ':cd " ++ d ++ "'"
 
 spawnInCurrent cmd = currentTopicDir myTopicConfig >>= (spawnIn cmd)
-spawnIn cmd dir = spawn $ cmd ++ " " ++ dir
+spawnIn :: (Dir -> String) -> Dir -> X ()
+spawnIn cmd dir = spawn $ cmd dir
 
