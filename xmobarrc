@@ -2,9 +2,9 @@ Config { font = "xft:DejaVu Sans Book:size=11:antialias=true"
        , bgColor = "#3c3c3c"
        , fgColor = "grey"
        , position = BottomW L 85
-       , commands = [ Run Cpu ["-t", "cpu: <total>%", "-L","3","-H","50","--normal","green","--high","red"] 10
-                    , Run Memory ["-t","mem: <usedratio>%"] 10
-                    , Run Date "%a %b %_d %H:%M" "date" 10
+       , commands = [ Run Cpu ["-t", "cpu: <total>%", "-L","3","-H","50","--normal","green","--high","red"] 30
+                    , Run Memory ["-t","mem: <usedratio>%"] 30
+                    , Run Date "%a %b %_d %H:%M" "date" 20
                     , Run StdinReader
                     ]
        , sepChar = "%"
