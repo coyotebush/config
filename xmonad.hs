@@ -41,7 +41,7 @@ main = do
 wkW = "www"; wkC = "com"
 myTopics = ["1", wkW, wkC, "sys"
            , "305", "308", "349", "ES"
-           , "job", "finance", "ta"
+           , "job", "finance", "ta", "presentation"
            ]
 
 myTopicConfig = defaultTopicConfig
@@ -59,6 +59,7 @@ myTopicConfig = defaultTopicConfig
       , ("1", spawnFileBrowser)
       , ("finance", spawn "private gnucash")
       , ("ta", spawnFileBrowser)
+      , ("presentation", return ())
       ]
   , defaultTopicAction = const $ spawnShell
   }
