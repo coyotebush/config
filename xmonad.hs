@@ -38,9 +38,9 @@ main = do
         }
 
 -- -------------------------- Workspaces -------------------- --
-wkW = "www"; wkC = "com"
-myTopics = ["1", wkW, wkC, "sys"
-           , "305", "308", "349", "ES"
+wkW = "w"; wkC = "c"
+myTopics = ["1", wkW, wkC, "s"
+           , "305", "308", "349", "es"
            , "job", "finance", "ta", "presentation"
            ]
 
@@ -49,7 +49,7 @@ myTopicConfig = defaultTopicConfig
       [ ("305", "School/2012-2013/CPE305/minimax")
       , ("308", "School/2012-2013/CPE308/eclass")
       , ("349", "School/2012-2013/CPE349")
-      , ("ES",  "School/2012-2013/ES112")
+      , ("es",  "School/2012-2013/ES112")
       , ("job", "Documents/resume")
       , ("ta", "School/2012-2013/CPE315-TA")
       ]
@@ -155,6 +155,7 @@ myManageHook = composeAll . concat $
                                ,"grpn"
                                ,"Melody Assistant"
                                ,"Wine"
+                               ,"eclass-view-Main"
                                ]
                  myFloatWins = [("dia",        "Dia v0.97.1"            )
                                ,("thunar",     "File Operation Progress")
