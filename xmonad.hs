@@ -15,6 +15,7 @@ import XMonad.Util.Run ( spawnPipe )
 import qualified XMonad.StackSet as W
 import Data.Map ( fromList )
 import System.IO ( hPutStrLn )
+import System.Exit ( exitSuccess )
 
 main = do
        checkTopicConfig myTopics myTopicConfig
@@ -97,12 +98,14 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = fromList $
     , ((modm,               xK_space ), workspacePrompt defaultXPConfig (switchTopic myTopicConfig))
     , ((modm .|. shiftMask, xK_space ), workspacePrompt defaultXPConfig $ windows . W.shift)
 
-    --, ((modm .|. shiftMask, xK_Escape), spawn "xfce4-session-logout")
+    , ((modm .|. mod1Mask .|. shiftMask, xK_Escape), io exitSuccess)
     , ((modm .|. mod1Mask,  xK_Escape), spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi")
     
     , ((modm,               xK_Print ), spawn "scrot")
     , ((modm .|. shiftMask, xK_Print ), spawn "scrot -u")
-    --, ((modm .|. shiftMask, xK_s     ), spawn "xscreensaver-command --lock") --"slimlock")
+    , ((modm,               xK_s     ), spawn "xscreensaver-command --lock")
+    , ((modm .|. shiftMask, xK_s     ), spawn "dbus-send --print-reply --system --dest=org.freedesktop.UPower /org/freedesktop/UPower org.freedesktop.UPower.Suspend")
+    , ((modm .|. mod1Mask,  xK_s     ), spawn "screenlayout")
     , ((modm,               xK_b     ), spawnBrowser)
     , ((modm .|. shiftMask, xK_b     ), spawnFileBrowser)
     , ((modm,               xK_d     ), spawnEditor)
