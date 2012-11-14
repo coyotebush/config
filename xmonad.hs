@@ -41,7 +41,7 @@ main = do
 wkW = "w"; wkC = "c"
 myTopics = ["1", wkW, wkC, "s"
            , "305", "308", "349", "es"
-           , "job", "finance", "ta", "presentation"
+           , "job", "finance", "ta", "presentation", "hack"
            ]
 
 myTopicConfig = defaultTopicConfig
