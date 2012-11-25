@@ -4,7 +4,7 @@
 [core]
 	excludesfile = /home/corey/.gitignore
 [alias]
-	st = status -sb
+	st = status -s
 	ci = commit
 	di = diff
 	co = checkout
