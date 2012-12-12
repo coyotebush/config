@@ -13,7 +13,7 @@ import XMonad.Prompt
 import XMonad.Prompt.Workspace
 import XMonad.Util.Run ( spawnPipe )
 import qualified XMonad.StackSet as W
-import Control.Monad ( void )
+import Control.Monad ( when, void )
 import Data.Map ( fromList )
 import System.IO ( hPutStrLn )
 import System.Exit ( exitSuccess )
@@ -186,5 +186,7 @@ spawnEditor = spawnInCurrent "gvim"
 
 spawnInCurrent cmd = currentTopicDir myTopicConfig >>= (spawnIn cmd)
 spawnIn :: String -> Dir -> X ()
-spawnIn cmd dir = void $ xfork $ changeWorkingDirectory dir >> executeFile cmd True [] Nothing
+spawnIn cmd dir = void $ xfork $ do
+                    when (not $ null dir) $ changeWorkingDirectory dir
+                    executeFile cmd True [] Nothing
 
