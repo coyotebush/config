@@ -1,0 +1,10 @@
+"1.0rc1
+
+highlight StatusLineNormal color: white; background-color: #3c3c3c;
+set defsearch=ddg
+set guioptions=bs
+set passkeys=duckduckgo.com:jk\'h1!<Esc><Down><Up><CR>,facebook.com:<Left><Right><Esc>,docs.google.com:<Left><Right><Space>
+set strictfocus='chrome:*':laissez-faire,my.calpoly.edu:laissez-faire,netadm.calpoly.edu:laissez-faire,*:moderate
+map d :tabclose<CR>
+
+" vim: set ft=vim:
