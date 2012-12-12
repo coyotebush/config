@@ -13,9 +13,12 @@ import XMonad.Prompt
 import XMonad.Prompt.Workspace
 import XMonad.Util.Run ( spawnPipe )
 import qualified XMonad.StackSet as W
+import Control.Monad ( void )
 import Data.Map ( fromList )
 import System.IO ( hPutStrLn )
 import System.Exit ( exitSuccess )
+import System.Posix.Process ( executeFile )
+import System.Posix.Directory ( changeWorkingDirectory )
 
 main = do
        checkTopicConfig myTopics myTopicConfig
@@ -177,11 +180,11 @@ myManageHook = composeAll . concat $
 
 -- --------------------- Helpers ---------------------------- --
 spawnBrowser = spawn "firefox"
-spawnFileBrowser = spawnInCurrent $ (++) "thunar "
-spawnShell = spawnInCurrent $ (++) "xfterm4 "
-spawnEditor = spawnInCurrent $ \d -> "gvim -c ':cd " ++ d ++ "'"
+spawnFileBrowser = spawnInCurrent "thunar"
+spawnShell = spawnInCurrent "xfterm4"
+spawnEditor = spawnInCurrent "gvim"
 
 spawnInCurrent cmd = currentTopicDir myTopicConfig >>= (spawnIn cmd)
-spawnIn :: (Dir -> String) -> Dir -> X ()
-spawnIn cmd dir = spawn $ cmd dir
+spawnIn :: String -> Dir -> X ()
+spawnIn cmd dir = void $ xfork $ changeWorkingDirectory dir >> executeFile cmd True [] Nothing
 
