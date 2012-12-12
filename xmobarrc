@@ -1,7 +1,7 @@
 Config { font = "xft:DejaVu Sans Book:size=11:antialias=true"
        , bgColor = "#3c3c3c"
        , fgColor = "grey"
-       , position = BottomW L 85
+       , position = TopW L 85
        , commands = [ Run Cpu ["-t", "<total>%", "-L","3","-H","50","--normal","green","--high","red"] 30
                     , Run Memory ["-t","<usedratio>%"] 30
 					, Run ThermalZone 0 ["-t", "<temp>C"] 60
