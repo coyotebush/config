@@ -46,6 +46,6 @@ zle-keymap-select () {
 }
 
 o () {
-  for f; do xdg-open $f; done
+  for f; do xdg-open $f &!; done
 }
 
