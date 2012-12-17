@@ -135,7 +135,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = fromList $
 -- ------------------------- Layout ------------------------- --
 myLayoutHook = smartBorders $ avoidStruts $
                onWorkspace wkW Full $
-               onWorkspace wkC (reflectVert $ Mirror $ Tall 2 (1/100) (30/100)) $
+               onWorkspace wkC Full $ -- (reflectVert $ Mirror $ Tall 2 (1/100) (30/100)) $
                ResizableTall 1 (3/100) (60/100) [1] |||
                Mirror (ResizableTall 1 (3/100) (60/100) [1]) |||
                Full
