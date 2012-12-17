@@ -12,7 +12,7 @@ xrandr --output LVDS1 --mode 1366x768 --pos 0x0
 xfsettingsd
 xfce4-power-manager &
 xfce4-volumed &
-trayer --edge bottom --align right --widthtype percent --width 15 --height 22 \
+trayer --edge top --align right --widthtype percent --width 15 --height 22 \
 	--transparent true --alpha 0 --tint 0x3c3c3c &
 nm-applet &
 blueman-applet &
