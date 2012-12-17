@@ -9,7 +9,7 @@ local current_time='%{$fg[green]%}%T%{$reset_color%}'
 local vcs_branch='$(svn_prompt_info)$(git_prompt_info)%{$reset_color%}'
 
 PROMPT="${host}:${current_dir} ${vcs_branch}%B$%b "
-RPS1="${return_code} ${current_time}"
+RPS1="${return_code}"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}‹"
 ZSH_THEME_GIT_PROMPT_SUFFIX="› %{$reset_color%}"
