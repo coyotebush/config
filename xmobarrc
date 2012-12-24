@@ -4,8 +4,8 @@ Config { font = "xft:DejaVu Sans Book:size=11:antialias=true"
        , position = TopW L 85
        , commands = [ Run Cpu ["-t", "<total>%", "-L","3","-H","50","--normal","green","--high","red"] 30
                     , Run Memory ["-t","<usedratio>%"] 30
-					, Run ThermalZone 0 ["-t", "<temp>C"] 60
-					, Run Battery ["-t", "<timeleft>"] 600
+					, Run ThermalZone 0 ["-t", "<temp>C"] 120
+					, Run Battery ["-t", "<timeleft>"] 120
                     , Run Date "%a %b %_d %H:%M" "date" 20
                     , Run StdinReader
                     ]
