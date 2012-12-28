@@ -23,5 +23,5 @@ synapse -s &
 Thunar --daemon &
 xscreensaver -no-splash &
 
-exec dbus-launch xmonad # startxfce4
+exec xmonad # startxfce4
 
