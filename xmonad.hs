@@ -113,6 +113,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = fromList $
     , ((modm .|. shiftMask, xK_b     ), spawnFileBrowser)
     , ((modm,               xK_d     ), spawnEditor)
     , ((modm,               xK_x     ), spawn "grpn")
+    , ((modm,               xK_a     ), spawn "notify-send \"$(date)\"")
     ]
     ++
 
