@@ -37,7 +37,7 @@ main = do
                         updatePointer (TowardsCentre 0.3 0.3)
                         dynamicLogWithPP $ xmobarPP
                           { ppOutput = hPutStrLn xmproc
-                          , ppTitle = xmobarColor "white" "" . shorten 70
+                          , ppTitle = xmobarColor "white" "" -- . shorten 70
                           }
         }
 
