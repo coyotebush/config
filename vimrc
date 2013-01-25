@@ -30,6 +30,12 @@ set incsearch
 set hlsearch
 nnoremap <leader><space> :noh<cr>
 
+imap jj <Esc>
+noremap <Up> <C-w>W
+noremap <Down> <C-w>w
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
 let &sh='bash'
 
 set background=dark
