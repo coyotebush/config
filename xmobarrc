@@ -4,12 +4,12 @@ Config { font = "xft:DejaVu Sans Book:size=11:antialias=true:style=bold"
        , position = TopW L 80
        , commands = [ Run Cpu ["-t", "<total>%", "-L","6","-H","50","--normal","green","--high","red"] 30
                     , Run Memory ["-t","<usedratio>%"] 30
-					, Run ThermalZone 0 ["-t", "<temp>C"] 120
-					, Run Battery ["-t", "<timeleft>"] 120
-                    , Run Date "%a %b %_d %H:%M" "date" 20
+                    , Run ThermalZone 0 ["-t", "<temp>C"] 120
+                    , Run Battery ["-t", "<left>% (<timeleft>)", "--", "-c", "energy_full"] 120
+                    , Run Date "%a %_d %H:%M" "date" 20
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %cpu% | %memory% | %thermal0% | %battery%" --   <fc=#ee9a00>%date%</fc>"
+       , template = "%StdinReader% }{ %cpu% | %memory% | %thermal0% | %battery%   <fc=#ee9a00>%date%</fc>"
        }
