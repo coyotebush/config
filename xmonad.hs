@@ -160,7 +160,7 @@ myManageHook = composeAll . concat $
                                ,"grpn"
                                ,"Melody Assistant"
                                ,"Wine"
-                               ,"eclass-view-Main"
+                               ,"eclass-Main"
                                ]
                  myFloatWins = [("dia",        "Dia v0.97.1"            )
                                ,("thunar",     "File Operation Progress")
