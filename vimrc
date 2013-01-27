@@ -29,12 +29,15 @@ set gdefault
 set incsearch
 set hlsearch
 nnoremap <leader><space> :noh<cr>
+nmap <leader>l :set list!<cr>
 
 imap jj <Esc>
 noremap <Up> <C-w>W
 noremap <Down> <C-w>w
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+
+set listchars=tab:▸\ ,eol:¬
 
 let &sh='bash'
 
