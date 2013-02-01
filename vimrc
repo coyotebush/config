@@ -14,7 +14,7 @@ set scrolloff=2
 
 " Colors and GUI {{{2
 set background=dark
-colorscheme wombat
+colorscheme jellybeans
 
 if has('gui_running')
 	set guifont=Inconsolata\ Medium\ 11
