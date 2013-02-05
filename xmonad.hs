@@ -45,7 +45,7 @@ main = do
 wkW = "w"; wkC = "c"
 myTopics = ["1", wkW, wkC, "s"
            , "484", "308", "hist", "fs"
-           , "job", "finance", "ta", "presentation", "hack"
+           , "job", "finance", "ta", "present", "hack"
            ]
 
 myTopicConfig = defaultTopicConfig
@@ -61,7 +61,9 @@ myTopicConfig = defaultTopicConfig
       , (wkC, spawn "icedove")
       , ("1", spawnFileBrowser)
       , ("finance", spawn "private gnucash")
-      , ("presentation", return ())
+      , ("present", return ())
+      , ("hist", spawnBrowser)
+      , ("484", spawnBrowser)
       ]
   , defaultTopicAction = const $ spawnShell
   }
