@@ -106,6 +106,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = fromList $
     
     , ((modm,               xK_Print ), spawn "scrot")
     , ((modm .|. shiftMask, xK_Print ), spawn "scrot -u")
+    , ((modm .|. mod1Mask,  xK_Print ), spawn "shoot")
     , ((modm,               xK_s     ), spawn "xscreensaver-command --lock")
     , ((modm .|. shiftMask, xK_s     ), spawn "dbus-send --print-reply --system --dest=org.freedesktop.UPower /org/freedesktop/UPower org.freedesktop.UPower.Suspend")
     , ((modm .|. mod1Mask,  xK_s     ), spawn "screenlayout")
