@@ -8,6 +8,11 @@ set mouse=a
 set vb
 let &sh='bash'
 
+set clipboard=autoselect
+if has('unnamedplus')
+	set clipboard+=unnamedplus
+end
+
 " Appearance {{{1
 set number
 set scrolloff=2
