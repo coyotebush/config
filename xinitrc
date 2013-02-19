@@ -21,6 +21,7 @@ pulseaudio --start
 synapse -s &
 Thunar --daemon &
 xscreensaver -no-splash &
+unclutter &
 
 exec xmonad # startxfce4
 
