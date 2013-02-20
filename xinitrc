@@ -5,7 +5,7 @@ if [ -f "$HOME/.profile" ]; then
 fi
 
 xset b off
-xsetroot -cursor_name left_ptr -solid \#3c3c3c
+xsetroot -cursor_name left_ptr -solid \#4b4b4b
 xmodmap $HOME/.xmodmaprc
 xrandr --output LVDS1 --mode 1366x768 --pos 0x0
 
