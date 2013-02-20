@@ -1,5 +1,5 @@
 Config { font = "xft:DejaVu Sans Book:size=11:antialias=true:style=bold"
-       , bgColor = "#3c3c3c"
+       , bgColor = "#4b4b4b"
        , fgColor = "grey"
        , position = TopW L 80
        , commands = [ Run Cpu ["-t", "<total>%", "-L","6","-H","50","--normal","green","--high","red"] 30

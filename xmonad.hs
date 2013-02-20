@@ -26,7 +26,7 @@ main = do
        xmonad $ ewmh defaultConfig
         { modMask     = mod4Mask
         , borderWidth = 2
-        , normalBorderColor  = "#3C3C3C" -- ala Shiki-Colors themes
+        , normalBorderColor  = "#4b4b4b" -- ala Zukitwo themes
         , focusedBorderColor = "#A0A0A0"
         , terminal    = "xfterm4"
         , workspaces  = myTopics
