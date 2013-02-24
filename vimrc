@@ -66,3 +66,7 @@ noremap <Up> <C-w>W
 noremap <Down> <C-w>w
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+
+" Plugins {{{1
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+let g:ctrlp_working_path_mode = 'a'
