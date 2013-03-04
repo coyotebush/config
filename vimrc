@@ -13,6 +13,9 @@ if has('unnamedplus')
 	set clipboard+=unnamedplus
 end
 
+" http://stackoverflow.com/a/2969052/230170
+au FocusLost,TabLeave * call feedkeys("\<C-\>\<C-n>")
+
 " Appearance {{{1
 set number
 set scrolloff=2
