@@ -58,7 +58,7 @@ myTopicConfig = defaultTopicConfig
       ]
   , topicActions = fromList
       [ (wkW, spawnBrowser)
-      , (wkC, spawn "icedove")
+      , (wkC, spawn' "icedove")
       , ("1", spawnFileBrowser)
       , ("finance", spawn "private gnucash")
       , ("present", return ())
@@ -181,12 +181,16 @@ myManageHook = composeAll . concat $
                                ]
 
 -- --------------------- Helpers ---------------------------- --
-spawnBrowser = spawn "firefox"
+spawnBrowser = spawn' "firefox"
 spawnFileBrowser = spawnInCurrent "thunar"
 spawnShell = spawnInCurrent "xfterm4"
 spawnEditor = spawnInCurrent "gvim"
 
 spawnInCurrent cmd = currentTopicDir myTopicConfig >>= (spawnIn cmd)
+
+spawn' :: String -> X ()
+spawn' cmd = void $ xfork $ executeFile cmd True [] Nothing
+
 spawnIn :: String -> Dir -> X ()
 spawnIn cmd dir = void $ xfork $ do
                     when (not $ null dir) $ changeWorkingDirectory dir
