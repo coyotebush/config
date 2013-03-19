@@ -22,10 +22,9 @@ set scrolloff=2
 
 " Colors and GUI {{{2
 set background=dark
-colorscheme desert
+colorscheme darkspectrum
 
 if has('gui_running')
-	colorscheme jellybeans
 	set guifont=Inconsolata\ Medium\ 11
 	set guioptions-=T
 endif
