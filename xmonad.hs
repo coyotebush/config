@@ -44,15 +44,16 @@ main = do
 -- -------------------------- Workspaces -------------------- --
 wkW = "w"; wkC = "c"
 myTopics = ["1", wkW, wkC, "s"
-           , "484", "308", "hist", "fs"
+           , "570", "453", "engl", "sna", "fs"
            , "job", "finance", "ta", "present", "hack"
            ]
 
 myTopicConfig = defaultTopicConfig
   { topicDirs = fromList
-      [ ("308", "School/2012-2013/CPE308/eclass")
-      , ("484", "School/2012-2013/CSC484")
-      , ("hist", "School/2012-2013/HIST216")
+      [ ("453", "School/2012-2013/CPE453")
+      , ("570", "School/2012-2013/CSC570")
+      , ("engl", "School/2012-2013/ENGL310")
+      , ("sna", "School/2012-2013/SocialNetworkAnalysis")
       , ("fs",  "Programming/frogsong")
       , ("job", "Documents/resume")
       ]
@@ -62,8 +63,8 @@ myTopicConfig = defaultTopicConfig
       , ("1", spawnFileBrowser)
       , ("finance", spawn "private gnucash")
       , ("present", return ())
-      , ("hist", spawnBrowser)
-      , ("484", spawnBrowser)
+      , ("570", spawnBrowser)
+      , ("engl", spawnFileBrowser)
       ]
   , defaultTopicAction = const $ spawnShell
   }
