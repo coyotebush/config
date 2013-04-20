@@ -42,7 +42,8 @@ au BufEnter *.md setf markdown
 " Indentation {{{1
 set tabstop=4
 set shiftwidth=4
-set noexpandtab
+set softtabstop=4
+set expandtab
 set autoindent
 
 " Tab completion {{{1
