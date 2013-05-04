@@ -1,7 +1,32 @@
 " vim: fdm=marker
 set nocompatible
 
-call pathogen#infect() 
+" Vundle {{{1
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+Bundle 'vim-scripts/darkspectrum'
+Bundle 'nanotech/jellybeans.vim'
+Bundle 'skammer/vim-css-color'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-markdown'
+Bundle 'mileszs/ack.vim'
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
+Bundle 'godlygeek/tabular'
+"Bundle 'Lokaltog/powerline'
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/nerdcommenter'
+
+"call pathogen#infect() 
+
+" Plugin settings {{{1
+let g:ctrlp_working_path_mode = 'a'
+"set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 " Behavior {{{1
 set mouse=a
@@ -19,6 +44,7 @@ au FocusLost,TabLeave * call feedkeys("\<C-\>\<C-n>")
 " Appearance {{{1
 set number
 set scrolloff=2
+set laststatus=2
 
 " Colors and GUI {{{2
 set background=dark
@@ -70,6 +96,3 @@ noremap <Down> <C-w>w
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
-" Plugins {{{1
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-let g:ctrlp_working_path_mode = 'a'
