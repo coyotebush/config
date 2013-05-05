@@ -21,12 +21,15 @@ Bundle 'godlygeek/tabular'
 "Bundle 'Lokaltog/powerline'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/syntastic'
 
 "call pathogen#infect() 
 
 " Plugin settings {{{1
 let g:ctrlp_working_path_mode = 'a'
 "set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+nnoremap <leader>st :SyntasticToggleMode<cr>
+nnoremap <leader>sc :SyntasticCheck<cr>
 
 " Behavior {{{1
 set mouse=a
