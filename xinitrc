@@ -15,8 +15,7 @@ xfce4-volumed &
 $HOME/bin/mytrayer &
 nm-applet &
 blueman-applet &
-system-config-printer-applet &
-gtk-redshift -l 35.3:-120.7 -t 6500:5000 &
+redshift -l 35.3:-120.7 -t 6500:5000 &
 pulseaudio --start
 synapse -s &
 Thunar --daemon &
