@@ -36,6 +36,9 @@ alias lt='ls -lt'
 alias :e=gvim
 alias :q=exit
 
+alias serve='python -m SimpleHTTPServer'
+alias sys='sudo tail -f /var/log/syslog'
+
 ZSH_HIGHLIGHT_STYLES[globbing]='bold'
 
 zle-keymap-select () {
