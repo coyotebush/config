@@ -22,6 +22,7 @@ Bundle 'godlygeek/tabular'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
+Bundle 'gregsexton/gitv'
 
 "call pathogen#infect() 
 
