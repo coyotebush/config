@@ -29,8 +29,8 @@ Bundle 'gregsexton/gitv'
 " Plugin settings {{{1
 let g:ctrlp_working_path_mode = 'a'
 "set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-nnoremap <leader>st :SyntasticToggleMode<cr>
-nnoremap <leader>sc :SyntasticCheck<cr>
+nmap <leader>st :SyntasticToggleMode<cr>
+nmap <leader>sc :SyntasticCheck<cr>
 
 " Behavior {{{1
 set mouse=a
@@ -99,4 +99,6 @@ noremap <Up> <C-w>W
 noremap <Down> <C-w>w
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+nmap <leader>m :make 
+nmap <leader>mm :make<cr>
 
