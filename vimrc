@@ -70,11 +70,12 @@ syntax keyword cTodo contained DEBUG
 au BufEnter *.md setf markdown
 
 " Indentation {{{1
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set autoindent
+set colorcolumn=80
 
 " Tab completion {{{1
 set wildmode=longest,list,full
