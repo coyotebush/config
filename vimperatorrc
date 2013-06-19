@@ -3,9 +3,9 @@
 highlight StatusLine color: #333; background: transparent; font-weight: normal;
 highlight Hint font-family: sans-serif; font-size: 10px; font-weight: bold; text-transform: uppercase; color: white; background-color: black; padding: 0px 1px 0px 1px;
 set hintchars=abcdefghijklmnopqrstuvwxyz
-map t <C-t>
-map o <C-l>
-map O <C-l><Right>
+map t <M-t>
+map o <M-l>
+map O <M-l><Right>
 "set defsearch=ddg
 set noscrollbars
 set status=input,position,tabcount
