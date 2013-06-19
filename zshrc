@@ -29,15 +29,16 @@ plugins=(extract git svn phing vi-mode zsh-syntax-highlighting history-substring
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-alias sat='sudo aptitude'
 alias sudo='nocorrect sudo'
 alias lt='ls -lt'
 
-alias :e=gvim
+alias :e=mvim
 alias :q=exit
 
 alias serve='python -m SimpleHTTPServer'
 alias sys='sudo tail -f /var/log/syslog'
+
+export VISUAL="mvim -f"
 
 ZSH_HIGHLIGHT_STYLES[globbing]='bold'
 
