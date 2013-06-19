@@ -10,6 +10,7 @@ Bundle 'gmarik/vundle'
 
 Bundle 'vim-scripts/darkspectrum'
 Bundle 'nanotech/jellybeans.vim'
+Bundle 'Pychimp/vim-luna'
 Bundle 'skammer/vim-css-color'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
