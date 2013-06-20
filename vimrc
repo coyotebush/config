@@ -55,7 +55,11 @@ set background=dark
 colorscheme darkspectrum
 
 if has('gui_running')
-	set guifont=Inconsolata\ Medium\ 11
+	if has('mac')
+		set guifont=Inconsolata:h14
+	else
+		set guifont=Inconsolata\ Medium\ 11
+	endif
 	set guioptions-=T
 endif
 
