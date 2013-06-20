@@ -25,6 +25,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 Bundle 'gregsexton/gitv'
+Bundle 'vim-scripts/taglist.vim'
 
 "call pathogen#infect() 
 
@@ -33,6 +34,9 @@ let g:ctrlp_working_path_mode = 'a'
 "set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 nmap <leader>st :SyntasticToggleMode<cr>
 nmap <leader>sc :SyntasticCheck<cr>
+
+nmap <leader>t :TlistToggle<cr>
+let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 
 " Behavior {{{1
 set mouse=a
