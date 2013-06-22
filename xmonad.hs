@@ -44,7 +44,7 @@ main = do
 -- -------------------------- Workspaces -------------------- --
 wkW = "w"; wkC = "c"
 myTopics = ["1", wkW, wkC, "s"
-           , "570", "453", "engl", "sna", "fs"
+           , "570", "453", "engl", "data", "fs"
            , "job", "finance", "ta", "present", "hack"
            ]
 
@@ -53,7 +53,7 @@ myTopicConfig = defaultTopicConfig
       [ ("453", "School/2012-2013/CPE453")
       , ("570", "School/2012-2013/CSC570")
       , ("engl", "School/2012-2013/ENGL310")
-      , ("sna", "School/2012-2013/SocialNetworkAnalysis")
+      , ("data", "School/2012-2013/DataScience")
       , ("fs",  "Programming/frogsong")
       , ("job", "Documents/resume")
       ]
