@@ -24,11 +24,13 @@ Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
 Bundle 'godlygeek/tabular'
 "Bundle 'Lokaltog/powerline'
+Bundle 'bling/vim-airline'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 Bundle 'gregsexton/gitv'
 Bundle 'vim-scripts/taglist.vim'
+Bundle 'sfiera/vim-emacsmodeline'
 
 "call pathogen#infect() 
 
