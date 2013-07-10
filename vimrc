@@ -65,7 +65,7 @@ set laststatus=2
 
 " Colors and GUI {{{2
 set background=dark
-colorscheme darkspectrum
+colorscheme desert
 
 if has('gui_running')
 	if has('mac')
@@ -73,6 +73,7 @@ if has('gui_running')
 	else
 		set guifont=Inconsolata\ Medium\ 11
 	endif
+	colorscheme solarized
 	set guioptions-=T
 endif
 
