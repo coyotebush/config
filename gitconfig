@@ -2,7 +2,7 @@
 	email = coyotebush22@gmail.com
 	name = 
 [core]
-	excludesfile = /home/corey/.gitignore
+	excludesfile = ~/.gitignore
 [alias]
 	st = status -s
 	ci = commit
