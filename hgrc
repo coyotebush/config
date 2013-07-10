@@ -1,0 +1,30 @@
+[ui]
+#merge = internal:merge
+merge = vimdiff
+
+[diff]
+git = 1
+showfunc = 1
+unified = 8
+
+[defaults]
+commit = -v
+diff = -p -U 8
+qdiff = -p -U 8
+qnew = -U
+
+[alias]
+qls = qseries -v -s
+
+[merge-tools]
+vimdiff.executable = /usr/local/bin/mvim
+vimdiff.args = -f -d $base $local $output $other +close +close
+
+[extensions]
+mq =
+record =
+
+[diff]
+git = 1
+unified = 8
+showfunc = 1
