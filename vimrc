@@ -49,7 +49,9 @@ set vb
 let &sh='bash'
 
 set clipboard=autoselect
-if has('unnamedplus')
+if has('gui_macvim')
+	set clipboard=unnamed
+elseif has('unnamedplus')
 	set clipboard+=unnamedplus
 end
 
