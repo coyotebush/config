@@ -21,8 +21,12 @@ vimdiff.executable = /usr/local/bin/mvim
 vimdiff.args = -f -d $base $local $output $other +close +close
 
 [extensions]
+color =
 mq =
 record =
+trychooser = ~/.hgext/trychooser/trychooser
+crecord = ~/.hgext/crecord
+bzexport = ~/.hgext/bzexport
 
 [diff]
 git = 1
