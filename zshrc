@@ -39,8 +39,6 @@ alias serve='python -m SimpleHTTPServer'
 alias sys='sudo tail -f /var/log/syslog'
 alias mc='cd ~/Code/mozilla-central/'
 
-export VISUAL="mvim -f"
-
 ZSH_HIGHLIGHT_STYLES[globbing]='bold'
 
 zle-keymap-select () {
