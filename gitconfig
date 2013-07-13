@@ -17,3 +17,5 @@
 	ui = true
 [github]
 	user = coyotebush
+[push]
+	default = simple
