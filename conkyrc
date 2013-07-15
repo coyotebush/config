@@ -47,7 +47,7 @@ extra_newline no
 own_window yes
 double_buffer yes
 own_window_argb_visual yes
-own_window_argb_value 60
+own_window_argb_value 120
 own_window_class Conky
 own_window_type desktop
 stippled_borders 0
