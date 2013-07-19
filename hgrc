@@ -24,7 +24,7 @@ vimdiff.args = -f -d $base $local $output $other +close +close
 color =
 mq =
 record =
-trychooser = ~/.hgext/trychooser/trychooser
+#trychooser = ~/.hgext/trychooser/trychooser
 crecord = ~/.hgext/crecord
 bzexport = ~/.hgext/bzexport
 
