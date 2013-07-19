@@ -676,7 +676,6 @@
     <application class="Firefox*">
       <desktop>2</desktop>
       <maximize>yes</maximize>
-      <decor>no</decor>
     </application>
     <!--
   # this is an example with comments through out. use these to make your
