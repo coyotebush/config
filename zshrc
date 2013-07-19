@@ -37,7 +37,7 @@ alias :q=exit
 
 alias serve='python -m SimpleHTTPServer'
 alias sys='sudo tail -f /var/log/syslog'
-alias mc='cd ~/Code/mozilla-central/'
+alias mc='cd ~/code/mozilla-central/'
 
 ZSH_HIGHLIGHT_STYLES[globbing]='bold'
 
