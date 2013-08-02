@@ -24,9 +24,13 @@ vimdiff.args = -f -d $base $local $output $other +close +close
 color =
 mq =
 record =
-#trychooser = ~/.hgext/trychooser/trychooser
+mqext = ~/.hgext/mqext
 crecord = ~/.hgext/crecord
 bzexport = ~/.hgext/bzexport
+qimportbz = ~/.hgext/qimportbz
+
+[mqext]
+mqcommit = auto
 
 [diff]
 git = 1

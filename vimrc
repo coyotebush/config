@@ -1,4 +1,4 @@
-" vim: fdm=marker
+" vim: fdm=marker noet
 set nocompatible
 
 " Vundle {{{1
