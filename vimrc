@@ -93,6 +93,7 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set autoindent
+set colorcolumn=80
 
 " Tab completion {{{1
 set wildmode=longest,list,full
