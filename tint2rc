@@ -7,10 +7,10 @@
 rounded = 0
 border_width = 0
 background_color = #262626 100
-border_color = #FFFFFF 6
+border_color = #FFFFFF 2
 
 # ID 2
-rounded = 5
+rounded = 2
 border_width = 0
 background_color = #FFFFFF 40
 border_color = #FFFFFF 40
@@ -18,13 +18,13 @@ border_color = #FFFFFF 40
 # ID 3
 rounded = 5
 border_width = 0
-background_color = #FFFFFF 6
+background_color = #FFFFFF 2
 border_color = #FFFFFF 60
 
 # Panel
 panel_monitor = all
 panel_position = bottom center horizontal
-panel_size = 100% 30
+panel_size = 100% 28
 panel_margin = 0 0
 panel_padding = 10 0 7
 panel_dock = 0
@@ -41,7 +41,7 @@ strut_policy = follow_size
 
 # Taskbar
 taskbar_mode = multi_desktop
-taskbar_padding = 2 3 2
+taskbar_padding = 2 0 2
 taskbar_background_id = 0
 taskbar_active_background_id = 0
 
@@ -49,13 +49,13 @@ taskbar_active_background_id = 0
 urgent_nb_of_blink = 8
 task_icon = 1
 task_text = 1
-task_centered = 1
+task_centered = 0
 task_maximum_size = 140 35
 task_padding = 6 2
 task_background_id = 0
 task_active_background_id = 2
 task_urgent_background_id = 2
-task_iconified_background_id = 3
+task_iconified_background_id = 0
 
 # Task Icons
 task_icon_asb = 70 0 0
@@ -64,7 +64,7 @@ task_urgent_icon_asb = 100 0 0
 task_iconified_icon_asb = 70 0 0
 
 # Fonts
-task_font = Liberation Sans 10
+task_font = Sans 10
 task_font_color = #FFFFFF 60
 task_active_font_color = #FFFFFF 80
 task_urgent_font_color = #FFFFFF 80
@@ -81,8 +81,8 @@ systray_icon_asb = 70 0 0
 
 # Clock
 time1_format = %a %d, %H:%M
-time1_font = Liberation Sans 10
-clock_font_color = #FFFFFF 64
+time1_font = Sans 10
+clock_font_color = #FFFFFF 60
 clock_padding = 5 0
 clock_background_id = 0
 clock_rclick_command = orage
@@ -107,9 +107,9 @@ battery = 1
 battery_low_status = 20
 battery_low_cmd = notify-send "battery low"
 battery_hide = 0
-bat1_font = Liberation Sans 10
-bat2_font = Liberation Sans 6
-battery_font_color = #FFFFFF 64
+bat1_font = Sans 10
+bat2_font = Sans 6
+battery_font_color = #FFFFFF 60
 battery_padding = 1 0
 battery_background_id = 0
 
