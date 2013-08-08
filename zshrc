@@ -29,6 +29,8 @@ plugins=(extract git svn phing vi-mode zsh-syntax-highlighting history-substring
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+unsetopt sharehistory
+
 alias sudo='nocorrect sudo'
 alias lt='ls -lt'
 
