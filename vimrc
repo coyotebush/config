@@ -31,6 +31,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'gregsexton/gitv'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'sfiera/vim-emacsmodeline'
+Bundle 'bkad/CamelCaseMotion'
 
 "call pathogen#infect() 
 
