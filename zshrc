@@ -55,3 +55,6 @@ o () {
   for f; do xdg-open $f &!; done
 }
 
+if [ -f /usr/local/etc/profile.d/z.sh ]; then
+  . /usr/local/etc/profile.d/z.sh
+fi
