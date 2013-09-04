@@ -33,12 +33,21 @@ unsetopt sharehistory
 
 alias sudo='nocorrect sudo'
 alias lt='ls -lt'
-
-alias :e=mvim
-alias :q=exit
-
 alias serve='python -m SimpleHTTPServer'
 alias sys='sudo tail -f /var/log/syslog'
+
+if type mvim >/dev/null; then
+  EDITOR=mvim
+elif type gvim >/dev/null; then
+  EDITOR=gvim
+elif type vim >/dev/null; then
+  EDITOR=vim
+fi
+alias :e=$EDITOR
+export EDITOR="$EDITOR -f"
+
+alias :q=exit
+
 
 mc=~/code/mozilla-central
 
