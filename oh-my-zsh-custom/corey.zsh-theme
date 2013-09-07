@@ -2,7 +2,7 @@
 local return_code="%(?..%{$terminfo[bold]$fg[red]%}%? ↵%{$reset_color%})"
 
 function hg_qtop() {
-  if [ -d .hg ]; then
+  if [ -d .hg/patches ]; then
     echo "$ZSH_THEME_GIT_PROMPT_PREFIX$(hg qtop)$ZSH_THEME_GIT_PROMPT_SUFFIX"
   fi
 }
