@@ -36,12 +36,13 @@ alias lt='ls -lt'
 alias serve='python -m SimpleHTTPServer'
 alias sys='sudo tail -f /var/log/syslog'
 
+EDITOR=vim
 if type mvim >/dev/null; then
   EDITOR=mvim
 elif type gvim >/dev/null; then
-  EDITOR=gvim
-elif type vim >/dev/null; then
-  EDITOR=vim
+  if [ -n "$DISPLAY" ]; then
+    EDITOR=gvim
+  fi
 fi
 alias :e=$EDITOR
 export EDITOR="$EDITOR -f"
