@@ -12,6 +12,7 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 local vicious = require("vicious")
+local lain = require("lain")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -40,11 +41,12 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
+--beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
+beautiful.init( awful.util.getdir("config") .. "/themes/solarized/dark/theme.lua" )
 
 -- This is used later as the default terminal and editor to run.
 terminal = "xfce4-terminal"
-editor = os.getenv("EDITOR") or "nano"
+editor = "gvim" --os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -58,26 +60,30 @@ modkey = "Mod4"
 local layouts =
 {
     awful.layout.suit.floating,
-    awful.layout.suit.tile,
+    --awful.layout.suit.tile,
+    lain.layout.uselesstile,
     --awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
+    --awful.layout.suit.tile.bottom,
     --awful.layout.suit.tile.top,
-    awful.layout.suit.fair,
-    awful.layout.suit.fair.horizontal,
+    lain.layout.uselessfair,
+    lain.layout.termfair,
+    --awful.layout.suit.fair,
+    --awful.layout.suit.fair.horizontal,
     --awful.layout.suit.spiral,
     --awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
     --awful.layout.suit.max.fullscreen,
-    awful.layout.suit.magnifier
+    --awful.layout.suit.magnifier
 }
+lain.layout.termfair.nmaster = 2
 -- }}}
 
 -- {{{ Wallpaper
-if beautiful.wallpaper then
-    for s = 1, screen.count() do
-        gears.wallpaper.maximized(beautiful.wallpaper, s, true)
-    end
-end
+--if beautiful.wallpaper then
+    --for s = 1, screen.count() do
+        --gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+    --end
+--end
 -- }}}
 
 -- {{{ Tags
@@ -199,7 +205,7 @@ for s = 1, screen.count() do
     mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
 
     -- Create the wibox
-    mywibox[s] = awful.wibox({ position = "top", screen = s })
+    mywibox[s] = awful.wibox({ position = "top", ontop = true, screen = s })
 
     -- Widgets that are aligned to the left
     local left_layout = wibox.layout.fixed.horizontal()
