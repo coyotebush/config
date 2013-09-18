@@ -4,3 +4,9 @@
 [submodule "vim/bundle/vundle"]
 	path = vim/bundle/vundle
 	url = https://github.com/gmarik/vundle.git
+[submodule "awesome/themes/awesome-themes-3.5"]
+	path = awesome/themes/awesome-themes-3.5
+	url = https://github.com/Morley93/awesome-themes-3.5.git
+[submodule "awesome/themes/solarized"]
+	path = awesome/themes/solarized
+	url = https://github.com/cycojesus/awesome-solarized.git
