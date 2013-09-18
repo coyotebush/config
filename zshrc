@@ -33,8 +33,6 @@ unsetopt sharehistory
 
 alias sudo='nocorrect sudo'
 alias lt='ls -lt'
-alias serve='python -m SimpleHTTPServer'
-alias sys='sudo tail -f /var/log/syslog'
 
 EDITOR=vim
 if type mvim >/dev/null; then
@@ -50,9 +48,6 @@ export EDITOR="$EDITOR -f"
 
 alias :q=exit
 
-
-mc=~/code/mozilla-central
-
 ZSH_HIGHLIGHT_STYLES[globbing]='bold'
 
 zle-keymap-select () {
@@ -62,9 +57,11 @@ zle-keymap-select () {
   esac
 }
 
-o () {
-  for f; do xdg-open $f &!; done
-}
+if ! type open >/dev/null; then
+  open () {
+    for f; do xdg-open $f &!; done
+  }
+fi
 
 if [ -f /usr/local/etc/profile.d/z.sh ]; then
   . /usr/local/etc/profile.d/z.sh
