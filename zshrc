@@ -40,9 +40,10 @@ EDITOR=vim
 if type mvim >/dev/null; then
   EDITOR=mvim
 elif type gvim >/dev/null; then
-  if [ -n "$DISPLAY" ]; then
-    EDITOR=gvim
-  fi
+  myvim() {
+    [ -n "$DISPLAY" ] && gvim $@ || vim $@
+  }
+  EDITOR=myvim
 fi
 alias :e=$EDITOR
 export EDITOR="$EDITOR -f"
