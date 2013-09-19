@@ -9,7 +9,7 @@
 	url = https://github.com/Morley93/awesome-themes-3.5.git
 [submodule "awesome/themes/solarized"]
 	path = awesome/themes/solarized
-	url = https://github.com/cycojesus/awesome-solarized.git
+	url = git@github.com:coyotebush/awesome-solarized.git
 [submodule "awesome/lain"]
 	path = awesome/lain
 	url = https://github.com/copycat-killer/lain.git
