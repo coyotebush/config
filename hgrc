@@ -28,6 +28,7 @@ mqext = ~/.hgext/mqext
 crecord = ~/.hgext/crecord
 bzexport = ~/.hgext/bzexport
 qimportbz = ~/.hgext/qimportbz
+prompt = ~/.hgext/prompt.py
 
 [mqext]
 mqcommit = auto
