@@ -18,4 +18,4 @@
 [github]
 	user = coyotebush
 [push]
-	default = simple
+	default = matching
