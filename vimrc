@@ -32,6 +32,7 @@ Bundle 'gregsexton/gitv'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'sfiera/vim-emacsmodeline'
 Bundle 'bkad/CamelCaseMotion'
+Bundle 'LaTeX-Box-Team/LaTeX-Box'
 
 "call pathogen#infect() 
 
@@ -48,6 +49,8 @@ nmap <leader>sc :SyntasticCheck<cr>
 
 nmap <leader>t :TlistToggle<cr>
 let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+
+let g:LatexBox_latexmk_preview_continously=1
 
 " Behavior {{{1
 set mouse=a
