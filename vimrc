@@ -37,8 +37,10 @@ Bundle 'bkad/CamelCaseMotion'
 
 " Plugin settings {{{1
 let g:airline_theme='solarized'
-let g:airline_left_sep=''
-let g:airline_right_sep=''
+let g:airline_powerline_fonts=1
+let g:airline_linecolumn_prefix=''
+let g:airline_fugitive_prefix=''
+
 let g:ctrlp_working_path_mode = 'a'
 "set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 nmap <leader>st :SyntasticToggleMode<cr>
