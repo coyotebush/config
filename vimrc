@@ -96,6 +96,8 @@ syntax on
 syntax keyword cTodo contained DEBUG
 au BufEnter *.md setf markdown
 
+set spellfile=~/.vim/spell/en.utf-8.add
+
 " Indentation {{{1
 set tabstop=4
 set shiftwidth=4
