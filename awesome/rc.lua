@@ -256,9 +256,13 @@ globalkeys = awful.util.table.join(
         end),
 
     -- Standard program
-    awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Control" }, "q", awesome.quit),
+    awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
+    awful.key({ modkey,           }, "d",     function () awful.util.spawn("gvim") end),
+    awful.key({ modkey,           }, "s",     function () awful.util.spawn("slimlock") end),
+    awful.key({ modkey, "Shift"   }, "s",     function () awful.util.spawn("systemctl suspend") end),
+    awful.key({ modkey, "Control" }, "s",     function () awful.util.spawn("arandr") end),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
