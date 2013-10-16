@@ -69,6 +69,9 @@ au FocusLost,TabLeave * call feedkeys("\<C-\>\<C-n>")
 
 " Appearance {{{1
 set number
+if version >= 703
+	set relativenumber
+end
 set scrolloff=2
 set laststatus=2
 
@@ -104,7 +107,9 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set autoindent
-set colorcolumn=80
+if version >= 703
+	set colorcolumn=80
+end
 
 " Tab completion {{{1
 set wildmode=longest,list,full
