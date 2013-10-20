@@ -7,7 +7,7 @@
 rounded = 0
 border_width = 0
 background_color = #262626 100
-border_color = #FFFFFF 1
+border_color = #FFFFFF 0
 
 # ID 2
 rounded = 2
@@ -18,7 +18,7 @@ border_color = #FFFFFF 40
 # ID 3
 rounded = 5
 border_width = 0
-background_color = #FFFFFF 1
+background_color = #FFFFFF 0
 border_color = #FFFFFF 60
 
 # Panel
