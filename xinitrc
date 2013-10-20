@@ -15,5 +15,5 @@ xfce4-volumed
 #tint2 &
 #conky &
 synapse -s &
-exec awesome
-#exec openbox-session
+#exec awesome
+exec openbox-session

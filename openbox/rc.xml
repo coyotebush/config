@@ -328,6 +328,21 @@
         <command>xfce4-terminal</command>
       </action>
     </keybind>
+    <keybind key="W-s">
+      <action name="Execute">
+        <command>slock</command>
+      </action>
+    </keybind>
+    <keybind key="W-S-s">
+      <action name="Execute">
+        <command>systemctl suspend</command>
+      </action>
+    </keybind>
+    <keybind key="W-C-s">
+      <action name="Execute">
+        <command>arandr</command>
+      </action>
+    </keybind>
     <keybind key="C-Menu">
       <action name="ShowMenu">
         <menu>root-menu</menu>
