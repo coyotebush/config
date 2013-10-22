@@ -252,10 +252,13 @@
     <keybind key="S-W-c">
       <action name="Close"/>
     </keybind>
-    <keybind key="W-Escape">
+    <!--keybind key="W-Escape">
       <action name="Lower"/>
       <action name="FocusToBottom"/>
       <action name="Unfocus"/>
+    </keybind-->
+    <keybind key="W-Escape">
+      <action name="ToggleMaximize"/>
     </keybind>
     <keybind key="W-space">
       <action name="ShowMenu">
@@ -701,6 +704,12 @@
     <application class="Firefox*">
       <desktop>2</desktop>
       <maximize>yes</maximize>
+    </application>
+    <application class="Thunderbird">
+      <desktop>3</desktop>
+    </application>
+    <application class="Hexchat">
+      <desktop>3</desktop>
     </application>
     <!--
   # this is an example with comments through out. use these to make your
