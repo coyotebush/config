@@ -12,8 +12,9 @@ compton -b
 redshift -l 35.3:-120.7 -t 6500:5000 &
 wicd-client -t &
 xfce4-volumed
-#tint2 &
-#conky &
+tint2 &
+conky &
+pytyle3 &
 synapse -s &
 #exec awesome
 exec openbox-session
