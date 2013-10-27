@@ -333,7 +333,7 @@
     </keybind>
     <keybind key="W-s">
       <action name="Execute">
-        <command>slock</command>
+        <command>dpmslock</command>
       </action>
     </keybind>
     <keybind key="W-S-s">
