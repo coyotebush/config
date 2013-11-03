@@ -3,6 +3,7 @@
 	name = 
 [core]
 	excludesfile = ~/.gitignore
+	pager = less -F -X
 [alias]
 	st = status -s
 	ci = commit
