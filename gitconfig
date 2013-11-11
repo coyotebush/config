@@ -1,6 +1,6 @@
 [user]
-	email = coyotebush22@gmail.com
-	name = 
+	email = corey@coreyford.name
+	name = Corey Ford
 [core]
 	excludesfile = ~/.gitignore
 	pager = less -F -X

@@ -1,6 +1,7 @@
 [ui]
 #merge = internal:merge
 merge = vimdiff
+username = Corey Ford <corey@coreyford.name>
 
 [diff]
 git = 1
