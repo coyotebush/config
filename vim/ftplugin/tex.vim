@@ -1,4 +1,5 @@
-set ts=2 sts=2 sw=2 et lbr conceallevel=2
+"set ts=2 sts=2 sw=2 et
+set lbr conceallevel=2
 
 " specifically for Latex-Suite
 set grepprg=grep\ -nH\ $*
