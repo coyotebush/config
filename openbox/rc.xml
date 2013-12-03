@@ -41,7 +41,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Zukitwo-ob</name>
+    <name>Dyne</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -56,17 +56,17 @@
     <keepBorder>yes</keepBorder>
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
-      <name>DejaVu Sans</name>
-      <size>8</size>
+      <name>Cantarell</name>
+      <size>10</size>
       <!-- font size in points -->
-      <weight>Bold</weight>
+      <weight>bold</weight>
       <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveWindow">
-      <name>sans</name>
-      <size>8</size>
+      <name>Cantarell</name>
+      <size>10</size>
       <!-- font size in points -->
       <weight>bold</weight>
       <!-- 'bold' or 'normal' -->
@@ -74,26 +74,26 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuHeader">
-      <name>sans</name>
-      <size>9</size>
+      <name>Cantarell</name>
+      <size>10</size>
       <!-- font size in points -->
-      <weight>normal</weight>
+      <weight>bold</weight>
       <!-- 'bold' or 'normal' -->
       <slant>normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuItem">
-      <name>sans</name>
-      <size>9</size>
+      <name>Cantarell</name>
+      <size>10</size>
       <!-- font size in points -->
-      <weight>normal</weight>
+      <weight>bold</weight>
       <!-- 'bold' or 'normal' -->
       <slant>normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="ActiveOnScreenDisplay">
-      <name>sans</name>
-      <size>9</size>
+      <name>Cantarell</name>
+      <size>10</size>
       <!-- font size in points -->
       <weight>bold</weight>
       <!-- 'bold' or 'normal' -->
@@ -101,8 +101,8 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveOnScreenDisplay">
-      <name>sans</name>
-      <size>9</size>
+      <name>Cantarell</name>
+      <size>10</size>
       <!-- font size in points -->
       <weight>bold</weight>
       <!-- 'bold' or 'normal' -->
@@ -722,9 +722,9 @@
     <application class="Hexchat">
       <desktop>3</desktop>
     </application>
-    <application class="Xfce4-terminal">
-      <decor>no</decor>
-    </application>
+    <!--<application class="Xfce4-terminal">-->
+      <!--<decor>no</decor>-->
+    <!--</application>-->
     <!--
   # this is an example with comments through out. use these to make your
   # own rules, but without the comments of course.
