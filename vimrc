@@ -13,6 +13,10 @@ Bundle 'nanotech/jellybeans.vim'
 Bundle 'Pychimp/vim-luna'
 Bundle 'jnurmine/Zenburn'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'chriskempson/base16-vim'
+Bundle 'vim-scripts/winter.vim'
+Bundle 'vim-scripts/biogoo.vim'
+Bundle 'fuqinho/vim-colors-graycier'
 Bundle 'skammer/vim-css-color'
 Bundle 'tpope/vim-fugitive'
 Bundle 'ludovicchabant/vim-lawrencium'
@@ -25,7 +29,7 @@ Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
 Bundle 'godlygeek/tabular'
 "Bundle 'Lokaltog/powerline'
-Bundle 'bling/vim-airline'
+"Bundle 'bling/vim-airline'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
@@ -87,7 +91,7 @@ if has('gui_running')
 	else
 		set guifont=Inconsolata\ Medium\ 11
 	endif
-	colorscheme solarized
+	colorscheme graycier
 	set guioptions-=T
 endif
 
