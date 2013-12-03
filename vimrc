@@ -55,6 +55,7 @@ nmap <leader>sc :SyntasticCheck<cr>
 nmap <leader>t :TlistToggle<cr>
 let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 
+let g:LatexBox_Folding=1
 let g:LatexBox_latexmk_preview_continuously=1
 let g:LatexBox_latexmk_async=1
 
