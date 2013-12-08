@@ -25,7 +25,6 @@ vimdiff.args = -f -d $base $local $output $other +close +close
 color =
 mq =
 record =
-inotify =
 mqext = ~/.hgext/mqext
 crecord = ~/.hgext/crecord
 bzexport = ~/.hgext/bzexport
