@@ -23,9 +23,9 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-alignment top_left
+alignment top_right
 background no
-border_width 1
+border_width 10
 cpu_avg_samples 2
 default_color white
 default_outline_color white
@@ -36,8 +36,8 @@ draw_outline no
 draw_shades no
 use_xft yes
 xftfont Inconsolata:size=11
-gap_x 5
-gap_y 5
+gap_x 10
+gap_y 10
 minimum_size 5 5
 net_avg_samples 2
 no_buffers yes
@@ -47,7 +47,7 @@ extra_newline no
 own_window yes
 double_buffer yes
 own_window_argb_visual yes
-own_window_argb_value 120
+own_window_argb_value 200
 own_window_class Conky
 own_window_type desktop
 stippled_borders 0
