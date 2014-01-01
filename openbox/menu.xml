@@ -16,9 +16,7 @@
 		<separator/>
 		<item label="Terminal">
 			<action name="Execute">
-				<command>
-					terminator
-				</command>
+				<command>x-terminal-emulator</command>
 			</action>
 		</item>
 		<item label="Web Browser">
@@ -37,9 +35,7 @@
 		</item>
 		<item label="Text Editor">
 			<action name="Execute">
-				<command>
-					geany
-				</command>
+				<command>gvim</command>
 			</action>
 		</item>
 		<item label="Media Player">
@@ -177,7 +173,12 @@
 			</item>
 		</menu>
 		<menu id="network" label="Network">
-		    <menu execute="cb-x-www-browser-pipemenu" id="wwwbrowsers" label="WWW Browsers"/>
+			<menu execute="cb-x-www-browser-pipemenu" id="wwwbrowsers" label="WWW Browsers"/>
+			<item label="Icedove Mail">
+				<action name="Execute">
+					<command>icedove</command>
+				</action>
+			</item>
 			<item label="gFTP Client">
 				<action name="Execute">
 					<command>
@@ -232,6 +233,11 @@
 					<command>
 						gnumeric
 					</command>
+				</action>
+			</item>
+			<item label="GnuCash">
+				<action name="Execute">
+					<command>gnucash</command>
 				</action>
 			</item>
 			<item label="Calculator">
