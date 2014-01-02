@@ -92,7 +92,7 @@ if has('gui_running')
 	else
 		set guifont=Inconsolata\ Medium\ 11
 	endif
-	colorscheme graycier
+	colorscheme darkspectrum
 	set guioptions-=T
 endif
 
