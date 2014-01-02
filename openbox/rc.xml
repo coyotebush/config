@@ -350,6 +350,15 @@
       <command>x-www-browser</command>
     </action>
   </keybind>
+  <keybind key="W-m">
+    <action name="Execute">
+      <startupnotify>
+        <enabled>true</enabled>
+        <name>Icedove</name>
+      </startupnotify>
+      <command>icedove</command>
+    </action>
+  </keybind>
   <keybind key="W-l">
     <action name="Execute">
       <startupnotify>
