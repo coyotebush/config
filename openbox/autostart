@@ -17,9 +17,6 @@
 ##
 ## Have fun & happy CrunchBangin'! :)
 
-## GNOME PolicyKit and Keyring
-eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
-
 ## Set root window colour
 hsetroot -solid "#2E3436" &
 
@@ -34,6 +31,9 @@ cb-compositor --start && \
 sleep 2s && \
 tint2 \
 ) &
+
+## Adjust color temperature
+gtk-redshift &
 
 ## Volume control for systray
 (sleep 2s && pnmixer) &
@@ -61,21 +61,10 @@ xscreensaver -no-splash &
 
 ## Set keyboard settings - 250 ms delay and 25 cps (characters per second) repeat rate.
 ## Adjust the values according to your preferances.
-xset r rate 250 25 &
+xset r rate 400 20 &
 
 ## Turn on/off system beep
 xset b off &
-
-## The following command runs hacks and fixes for #! LiveCD sessions.
-## Safe to delete after installation.
-cb-cowpowers &
-
-## cb-welcome - post-installation script, will not run in a live session and
-## only runs once. Safe to remove.
-(sleep 10s && cb-welcome --firstrun) &
-
-## cb-fortune - have Waldorf say a little adage
-#(sleep 120s && cb-fortune) &
 
 ## Run the conky
 conky -q &
