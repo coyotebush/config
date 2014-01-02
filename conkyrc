@@ -18,7 +18,7 @@ background yes
 use_xft yes
 xftfont Liberation Sans:size=9
 xftalpha 1
-update_interval 1.0
+update_interval 2.0
 total_run_times 0
 own_window yes
 own_window_transparent yes
@@ -26,7 +26,7 @@ own_window_type desktop
 #own_window_argb_visual yes
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 double_buffer yes
-minimum_size 200 200
+minimum_size 150 200
 maximum_width 240
 draw_shades no
 draw_outline no
@@ -46,26 +46,53 @@ override_utf8_locale no
 #  Output
 ##############################################
 TEXT
-S Y S T E M    I N F O
-${hr}
-Host:$alignr$nodename
+$nodename$alignr$kernel
 Uptime:$alignr$uptime
-RAM:$alignr$mem/$memmax
-Swap usage:$alignr$swap/$swapmax
-Disk usage:$alignr${fs_used /}/${fs_size /}
-CPU usage:$alignr${cpu cpu0}%
 
+${font Liberation Sans:bold:size=9}MEMORY ${hr 2}\
+${font Liberation Sans:normal:size=9}
+RAM:$alignr$mem / $memmax
+$membar
+Swap:$alignr$swap / $swapmax
+$swapbar
+Disk:$alignr${fs_used /} / ${fs_size /}
+${fs_bar /}
 
-S H O R T C U T    K E Y S
-${hr}
+${font Liberation Sans:bold:size=9}CPU ${hr 2}\
+${font Liberation Sans:normal:size=9}
+CPU usage:$alignr$cpu%
+Frequency:$alignr$freq_g GHz
+${cpugraph -l}
+${top name 1}$alignr${top cpu 1}
+${top name 2}$alignr${top cpu 2}
+${top name 3}$alignr${top cpu 3}
+
+${font Liberation Sans:bold:size=9}NETWORK ${hr 2}\
+${font Liberation Sans:normal:size=9}
+IP address:$alignr${addr wlan0}
+Gateway:$alignr$gw_ip
+WLAN:$alignr${wireless_essid wlan0} ${wireless_link_qual_perc wlan0}%
+${wireless_link_bar wlan0}
+Up:$alignr${upspeed wlan0}/s
+${upspeedgraph wlan0 10}
+Down:$alignr${downspeed wlan0}/s
+${downspeedgraph wlan0 10}
+
+${font Liberation Sans:bold:size=9}BATTERY ${hr 2}\
+${font Liberation Sans:normal:size=9}
+Status:$alignr$battery
+$battery_bar
+Time:$alignr$battery_time
+
+${font Liberation Sans:bold:size=9}SHORTCUT KEYS ${hr 2}\
+${font Liberation Sans:normal:size=9}
 Alt+F2$alignr Run Dialog
 Alt+F3$alignr Alt Menu
-Super+Space$alignr Main Menu
-Super+Tab$alignr Client Menu
-Super+t$alignr Terminal
+Super+Alt-Space$alignr Main Menu
+Super+Space$alignr Client Menu
+Super+Enter$alignr Terminal
 Super+f$alignr File Manager
 Super+e$alignr Editor
-Super+m$alignr Media Player
 Super+w$alignr Web Browser
 Super+h$alignr Task Manager
 Super+l$alignr Lock Screen
