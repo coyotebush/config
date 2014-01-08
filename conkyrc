@@ -67,16 +67,20 @@ ${top name 1}$alignr${top cpu 1}
 ${top name 2}$alignr${top cpu 2}
 ${top name 3}$alignr${top cpu 3}
 
+$if_gw\
 ${font Liberation Sans:bold:size=9}NETWORK ${hr 2}\
 ${font Liberation Sans:normal:size=9}
 IP address:$alignr${addr wlan0}
 Gateway:$alignr$gw_ip
+${if_up wlan0}\
 WLAN:$alignr${wireless_essid wlan0} ${wireless_link_qual_perc wlan0}%
 ${wireless_link_bar wlan0}
 Up:$alignr${upspeed wlan0}/s
 ${upspeedgraph wlan0 10}
 Down:$alignr${downspeed wlan0}/s
 ${downspeedgraph wlan0 10}
+$endif\
+$endif\
 
 ${font Liberation Sans:bold:size=9}BATTERY ${hr 2}\
 ${font Liberation Sans:normal:size=9}
@@ -87,7 +91,6 @@ Time:$alignr$battery_time
 ${font Liberation Sans:bold:size=9}SHORTCUT KEYS ${hr 2}\
 ${font Liberation Sans:normal:size=9}
 Alt+F2$alignr Run Dialog
-Alt+F3$alignr Alt Menu
 Super+Alt-Space$alignr Main Menu
 Super+Space$alignr Client Menu
 Super+Enter$alignr Terminal
