@@ -43,19 +43,20 @@ main = do
 -- -------------------------- Workspaces -------------------- --
 wkW = "w"; wkC = "c"
 myTopics = ["1", wkW, wkC, "s"
-           , "323", "560"
+           , "430", "464"
            , "present", "hack"
            ]
 
 myTopicConfig = defaultTopicConfig
   { topicDirs = fromList
-      [ ("323", "edu/2014-2015/CSC323")
-      , ("560", "edu/2014-2015/CSC560")
+      [ ("430", "edu/2014/CPE430")
+      , ("464", "edu/2014/CPE464")
       ]
   , topicActions = fromList
       [ (wkW, spawnBrowser)
       , (wkC, spawn' "icedove")
       , ("1", spawnFileBrowser)
+      , ("430", spawn' "drracket")
       , ("present", return ())
       ]
   , defaultTopicAction = const $ spawnShell
@@ -167,6 +168,7 @@ myManageHook = composeAll . concat $
                                ,("Iceweasel",  "Password Required"      )
                                ,("Icedove",    "Password Required"      )
                                ,("claws-mail", "Error"                  )
+                               ,("drracket",   "DrRacket 6.1"           )
                                ]
                  myIgnores   = ["Do"
                                ,"synapse"
