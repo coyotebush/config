@@ -502,6 +502,11 @@
 					</command>
 				</action>
 			</item>
+			<item label="Firewall">
+				<action name="Execute">
+					<command>gksudo gufw</command>
+				</action>
+			</item>
 			<item label="User Login Settings">
 				<action name="Execute">
 					<command>
