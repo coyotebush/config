@@ -26,7 +26,7 @@ own_window_type desktop
 #own_window_argb_visual yes
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 double_buffer yes
-minimum_size 150 200
+minimum_size 150 700
 maximum_width 240
 draw_shades no
 draw_outline no
@@ -42,6 +42,7 @@ no_buffers yes
 uppercase no
 cpu_avg_samples 2
 override_utf8_locale no
+if_up_strictness link
 ##############################################
 #  Output
 ##############################################
@@ -78,7 +79,7 @@ Time:$alignr$battery_time
 $if_gw\
 ${font Liberation Sans:bold:size=9}NETWORK ${hr 2}\
 ${font Liberation Sans:normal:size=9}
-Gateway:$alignr$gw_iface $gw_ip
+GW:$alignr$gw_iface $gw_ip
 ${if_up eth0}\
 eth0:$alignr${addr eth0}
 Up:$alignr${upspeed eth0}/s (${totalup eth0})
