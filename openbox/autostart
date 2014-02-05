@@ -36,7 +36,7 @@ tint2 \
 ) &
 
 ## Adjust color temperature
-gtk-redshift &
+redshift &
 
 ## Volume control for systray
 (sleep 2s && pnmixer) &
