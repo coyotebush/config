@@ -254,6 +254,13 @@
 					</command>
 				</action>
 			</item>
+			<item label="Eclipse ADT">
+				<action name="Execute">
+					<command>
+						/opt/adt-bundle/eclipse/eclipse
+					</command>
+				</action>
+			</item>
 		</menu>
 		<separator/>
 		<menu execute="cb-places-pipemenu" id="pipe-placesmenu" label="Places"/>
