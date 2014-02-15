@@ -88,6 +88,13 @@ ${upspeedgraph eth0 10}
 Down:$alignr${downspeed eth0}/s (${totaldown eth0})
 ${downspeedgraph eth0 10}
 $endif\
+${if_up usb0}\
+usb0:$alignr${addr usb0}
+Up:$alignr${upspeed usb0}/s (${totalup usb0})
+${upspeedgraph usb0 10}
+Down:$alignr${downspeed usb0}/s (${totaldown usb0})
+${downspeedgraph usb0 10}
+$endif\
 ${if_up wlan0}\
 SSID:$alignr${wireless_essid wlan0} ${wireless_link_qual_perc wlan0}%
 ${wireless_link_bar wlan0}
