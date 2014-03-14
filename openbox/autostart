@@ -21,7 +21,7 @@
 eval $(gnome-keyring-daemon -s --components=secrets) &
 
 ## Set root window colour
-hsetroot -solid "#2E3436" &
+hsetroot -solid "#000000" &
 
 ## Group start:
 ## 1. nitrogen - restores wallpaper
