@@ -57,8 +57,10 @@ RAM:$alignr$mem / $memmax
 $membar
 Swap:$alignr$swap / $swapmax
 $swapbar
-Disk:$alignr${fs_used /} / ${fs_size /}
+Root$alignr${fs_used /} / ${fs_size /}
 ${fs_bar /}
+Home$alignr${fs_used /home/corey} / ${fs_size /home/corey}
+${fs_bar /home/corey}
 
 ${font Liberation Sans:bold:size=9}CPU ${hr 2}\
 ${font Liberation Sans:normal:size=9}
