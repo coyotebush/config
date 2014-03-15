@@ -66,8 +66,8 @@ ${font Liberation Sans:bold:size=9}CPU ${hr 2}\
 ${font Liberation Sans:normal:size=9}
 CPU usage:$alignr$cpu%
 Frequency:$alignr$freq_g GHz
-Temperature:$alignr${hwmon 0 temp 1} C
-Fan:$alignr${hwmon 2 fan 1} rpm
+Temperature:$alignr${platform coretemp.0 temp 1} C
+Fan:$alignr${platform thinkpad_hwmon fan 1} rpm
 ${cpugraph -l}
 ${top name 1}$alignr${top cpu 1}
 ${top name 2}$alignr${top cpu 2}
