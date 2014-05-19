@@ -491,6 +491,7 @@
         <action name="FocusToBottom"/>
         <action name="Unfocus"/>
       </mousebind>
+      <!--
       <mousebind button="W-Up" action="Click">
         <action name="GoToDesktop">
           <to>previous</to>
@@ -507,6 +508,7 @@
     <mousebind button="W-S-Down" action="Click">
       <action name="SendToDesktop"><to>next</to></action>
     </mousebind>
+    -->
     </context>
 
     <context name="Titlebar">
