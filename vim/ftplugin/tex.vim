@@ -1,5 +1,13 @@
 "set ts=2 sts=2 sw=2 et
-set lbr conceallevel=2
+set lbr
+set conceallevel=2
+set cc=
+set spell
+
+noremap <buffer> <silent> k gk
+noremap <buffer> <silent> j gj
+noremap <buffer> <silent> 0 g0
+noremap <buffer> <silent> $ g$
 
 " specifically for Latex-Suite
 set grepprg=grep\ -nH\ $*
