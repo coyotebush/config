@@ -255,7 +255,17 @@
     <action name="Close"/>
   </keybind>
   <keybind key="W-Escape">
-    <action name="ToggleMaximize"/>
+    <action name="If">
+      <maximized>yes</maximized>
+      <then>
+        <action name="Unmaximize"/>
+        <action name="Decorate"/>
+      </then>
+      <else>
+        <action name="Maximize"/>
+        <action name="Undecorate"/>
+      </else>
+    </action>
   </keybind>
   <keybind key="W-space">
     <action name="ShowMenu">
