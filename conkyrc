@@ -36,8 +36,8 @@ draw_graph_borders no
 default_color 656667
 default_shade_color 000000
 default_outline_color 828282
-alignment top_right
-gap_x 12
+alignment top_left
+gap_x 52
 gap_y 12
 no_buffers yes
 uppercase no
