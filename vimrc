@@ -39,6 +39,7 @@ Bundle 'vim-scripts/taglist.vim'
 Bundle 'sfiera/vim-emacsmodeline'
 Bundle 'bkad/CamelCaseMotion'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'wting/rust.vim'
 
 "call pathogen#infect() 
 
