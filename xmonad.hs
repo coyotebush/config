@@ -5,6 +5,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.UrgencyHook
 import XMonad.Layout.NoBorders
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Reflect
@@ -23,22 +24,17 @@ import System.Posix.Directory ( changeWorkingDirectory )
 main = do
        checkTopicConfig myTopics myTopicConfig
        xmproc <- spawnPipe "xmobar"
-       xmonad $ ewmh defaultConfig
+       xmonad $ ewmh $ withMyUrgencyHook defaultConfig
         { modMask     = mod4Mask
         , borderWidth = 2
-        , normalBorderColor  = "#4b4b4b" -- ala Zukitwo themes
-        , focusedBorderColor = "#A0A0A0"
-        , terminal    = "xfterm4"
+        , normalBorderColor  = "#2a2a2a"
+        , focusedBorderColor = "#0099ff"
+        , terminal    = myTerminal
         , workspaces  = myTopics
         , keys        = myKeys
         , layoutHook  = myLayoutHook
         , manageHook  = myManageHook <+> manageDocks
-        , logHook     = do
-                        updatePointer (TowardsCentre 0.3 0.3)
-                        dynamicLogWithPP $ xmobarPP
-                          { ppOutput = hPutStrLn xmproc
-                          , ppTitle = xmobarColor "white" "" -- . shorten 70
-                          }
+        , logHook     = myLogHook xmproc
         }
 
 -- -------------------------- Workspaces -------------------- --
@@ -73,7 +69,7 @@ myTopicConfig = defaultTopicConfig
 -- -------------------------- Keys -------------------------- --
 myKeys conf@(XConfig {XMonad.modMask = modm}) = fromList $
     [ ((modm,               xK_Return ), spawnShell)
-    --, ((modm,               xK_space ), spawn "synapse") -- "exe=`dmenu_path | dmenu -b` && eval \"exec $exe\"")
+    , ((mod1Mask,           xK_space ), spawn "gmrun") --"synapse") -- "exe=`dmenu_path | dmenu -b` && eval \"exec $exe\"")
     , ((mod1Mask,           xK_Menu  ), spawn "xfdesktop --menu")
     -- , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
     , ((modm .|. shiftMask, xK_c     ), kill)
@@ -90,6 +86,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = fromList $
     , ((modm .|. shiftMask, xK_k     ), windows W.swapUp    )
     , ((modm .|. mod1Mask,  xK_Tab   ), windows W.swapDown  )
     , ((modm .|. mod1Mask .|. shiftMask, xK_Tab), windows W.swapUp    )
+    , ((modm,               xK_u     ), focusUrgent)
     , ((modm,               xK_h     ), sendMessage Shrink)
     , ((modm,               xK_l     ), sendMessage Expand)
     , ((modm .|. shiftMask, xK_h     ), sendMessage MirrorShrink)
@@ -108,13 +105,13 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = fromList $
     , ((modm,               xK_Print ), spawn "scrot")
     , ((modm .|. shiftMask, xK_Print ), spawn "scrot -u")
     , ((modm .|. mod1Mask,  xK_Print ), spawn "shoot")
-    , ((modm,               xK_s     ), spawn "xscreensaver-command --lock")
-    , ((modm .|. shiftMask, xK_s     ), spawn "dbus-send --print-reply --system --dest=org.freedesktop.UPower /org/freedesktop/UPower org.freedesktop.UPower.Suspend")
-    , ((modm .|. mod1Mask,  xK_s     ), spawn "screenlayout")
+    , ((modm,               xK_s     ), spawn "xscreensaver-command -lock")
+    , ((modm .|. shiftMask, xK_s     ), spawn "systemctl suspend")
+    , ((modm .|. mod1Mask,  xK_s     ), spawn "screenlayout2")
     , ((modm,               xK_b     ), spawnBrowser)
     , ((modm .|. shiftMask, xK_b     ), spawnFileBrowser)
     , ((modm,               xK_d     ), spawnEditor)
-    , ((modm,               xK_x     ), spawn "grpn")
+    , ((modm,               xK_x     ), spawn "galculator")
     , ((modm,               xK_a     ), spawn "notify-send \"$(date)\"")
     ]
     ++
@@ -161,10 +158,7 @@ myManageHook = composeAll . concat $
                                ,"gimp"
                                ,"gimp-2.6"
                                ,"xfrun4"
-                               ,"grpn"
-                               ,"Melody Assistant"
-                               ,"Wine"
-                               ,"eclass-Main"
+                               ,"galculator"
                                ]
                  myFloatWins = [("dia",        "Dia v0.97.1"            )
                                ,("thunar",     "File Operation Progress")
@@ -181,10 +175,23 @@ myManageHook = composeAll . concat $
                                ,"xfce4-notifyd"
                                ]
 
+-- --------------------- Logging ---------------------------- --
+myLogHook xmproc = do
+                   updatePointer (TowardsCentre 0.3 0.3)
+                   dynamicLogWithPP $ xmobarPP
+                     { ppOutput = hPutStrLn xmproc
+                     , ppTitle  = xmobarColor "white" "" -- . shorten 70
+                     }
+
+withMyUrgencyHook = withUrgencyHookC
+                      BorderUrgencyHook { urgencyBorderColor = "#ff0000" }
+                      urgencyConfig { suppressWhen = Focused }
+
 -- --------------------- Helpers ---------------------------- --
+myTerminal = "terminator"
 spawnBrowser = spawn' "firefox"
 spawnFileBrowser = spawnInCurrent "thunar"
-spawnShell = spawnInCurrent "xfterm4"
+spawnShell = spawnInCurrent myTerminal
 spawnEditor = spawnInCurrent "gvim"
 
 spawnInCurrent cmd = currentTopicDir myTopicConfig >>= (spawnIn cmd)

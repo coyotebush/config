@@ -1,20 +1,13 @@
 #!/bin/sh
 
-if [ -d /etc/X11/xinit/xinitrc.d ]; then
-  for f in /etc/X11/xinit/xinitrc.d/*; do
-    [ -x "$f" ] && . "$f"
-  done
-  unset f
-fi
+~/bin/screenlayout2
+xsetroot -cursor_name left_ptr -solid "#202020" &
+xset r rate 400 20 &
+xset b off &
 
-~/.fehbg &
-compton -b
-redshift -l 35.3:-120.7 -t 6500:5000 &
-wicd-client -t &
-xfce4-volumed
-tint2 &
-conky &
-pytyle3 &
-synapse -s &
-#exec awesome
-exec openbox-session
+redshift &
+xfce4-volumed &
+thunar --daemon &
+xscreensaver -no-splash &
+
+exec xmonad
