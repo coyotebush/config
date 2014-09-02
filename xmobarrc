@@ -1,15 +1,18 @@
-Config { font = "xft:DejaVu Sans Book:size=11:antialias=true:style=bold"
-       , bgColor = "#4b4b4b"
+Config { font = "xft:Inconsolata:size=11:antialias=true:style=bold"
+       , bgColor = "#2a2a2a"
        , fgColor = "grey"
-       , position = TopW L 80
+       , position = TopW L 100
        , commands = [ Run Cpu ["-t", "<total>%", "-L","6","-H","50","--normal","green","--high","red"] 30
                     , Run Memory ["-t","<usedratio>%"] 30
                     , Run ThermalZone 0 ["-t", "<temp>C"] 120
-                    , Run Battery ["-t", "<left>% (<timeleft>)", "--", "-c", "energy_full"] 120
+                    , Run Battery ["-t", "<left>% (<timeleft>)"] 120
                     , Run Date "%a %_d %H:%M" "date" 20
                     , Run StdinReader
+					, Run Network "wlan0" ["--", "-S", "True"] 60
+					, Run Wireless "wlan0" ["-t", "<essid> <qualitybar>"] 30
+					, Run Weather "KSBP" ["-t", "KSBP: <tempF>F"] 3000
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %cpu% | %memory% | %thermal0% | %battery%   <fc=#ee9a00>%date%</fc>"
+       , template = " %StdinReader% }{%wlan0% %wlan0wi% | %cpu% | %memory% | %thermal0% | %battery%   %KSBP% <fc=#ee9a00>%date%</fc> "
        }
