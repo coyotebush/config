@@ -107,7 +107,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = fromList $
     , ((modm .|. mod1Mask,  xK_Print ), spawn "shoot")
     , ((modm,               xK_s     ), spawn "xscreensaver-command -lock")
     , ((modm .|. shiftMask, xK_s     ), spawn "systemctl suspend")
-    , ((modm .|. mod1Mask,  xK_s     ), spawn "screenlayout2")
+    , ((modm .|. mod1Mask,  xK_s     ), spawn "autorandr")
     , ((modm,               xK_b     ), spawnBrowser)
     , ((modm .|. shiftMask, xK_b     ), spawnFileBrowser)
     , ((modm,               xK_d     ), spawnEditor)
