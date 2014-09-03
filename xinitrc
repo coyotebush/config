@@ -1,6 +1,6 @@
 #!/bin/sh
 
-~/bin/screenlayout2
+~/bin/autorandr
 xsetroot -cursor_name left_ptr -solid "#202020" &
 xset r rate 400 20 &
 xset b off &
