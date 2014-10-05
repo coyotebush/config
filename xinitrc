@@ -10,4 +10,6 @@ xfce4-volumed &
 thunar --daemon &
 xscreensaver -no-splash &
 
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 exec xmonad
