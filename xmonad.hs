@@ -6,6 +6,7 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.UrgencyHook
+import XMonad.Layout.Grid
 import XMonad.Layout.NoBorders
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Reflect
@@ -40,27 +41,20 @@ main = do
 -- -------------------------- Workspaces -------------------- --
 wkW = "w"; wkC = "c"
 myTopics = ["1", wkW, wkC, "s"
-           , "570", "453", "engl", "data", "fs"
-           , "job", "finance", "ta", "present", "hack"
+           , "323", "560"
+           , "present", "hack"
            ]
 
 myTopicConfig = defaultTopicConfig
   { topicDirs = fromList
-      [ ("453", "School/2012-2013/CPE453")
-      , ("570", "School/2012-2013/CSC570")
-      , ("engl", "School/2012-2013/ENGL310")
-      , ("data", "School/2012-2013/DataScience")
-      , ("fs",  "Programming/frogsong")
-      , ("job", "Documents/resume")
+      [ ("323", "edu/2014-2015/CSC323")
+      , ("560", "edu/2014-2015/CSC560")
       ]
   , topicActions = fromList
       [ (wkW, spawnBrowser)
       , (wkC, spawn' "icedove")
       , ("1", spawnFileBrowser)
-      , ("finance", spawn "private gnucash")
       , ("present", return ())
-      , ("570", spawnBrowser)
-      , ("engl", spawnFileBrowser)
       ]
   , defaultTopicAction = const $ spawnShell
   }
@@ -135,7 +129,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = fromList $
 -- ------------------------- Layout ------------------------- --
 myLayoutHook = smartBorders $ avoidStruts $
                onWorkspace wkW Full $
-               onWorkspace wkC Full $ -- (reflectVert $ Mirror $ Tall 2 (1/100) (30/100)) $
+               onWorkspace wkC (GridRatio 1.3) $
                ResizableTall 1 (3/100) (60/100) [1] |||
                Mirror (ResizableTall 1 (3/100) (60/100) [1]) |||
                Full
@@ -159,6 +153,7 @@ myManageHook = composeAll . concat $
                                ,"gimp-2.6"
                                ,"xfrun4"
                                ,"galculator"
+                               ,"pinentry"
                                ]
                  myFloatWins = [("dia",        "Dia v0.97.1"            )
                                ,("thunar",     "File Operation Progress")
