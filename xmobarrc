@@ -6,7 +6,7 @@ Config { font = "xft:Inconsolata:size=11:antialias=true:style=bold"
                     , Run Memory ["-t","<usedratio>%"] 30
                     , Run ThermalZone 0 ["-t", "<temp>C"] 120
                     , Run Date "%a %_d %H:%M" "date" 20
-                    , Run Network "wlan0" ["-t", "<rx>KB/<tx>KB", "--", "-S", "True"] 60
+                    , Run Network "wlan0" ["-t", "<rx>KB/<tx>KB"] 60
                     , Run Wireless "wlan0" ["-t", "<essid> <quality>%"] 30
                     , Run Mail [("INBOX ", "~/mail/INBOX")] "mail"
                     , Run Cpu
