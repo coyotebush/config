@@ -11,6 +11,8 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Reflect
 import XMonad.Layout.ResizableTile
+import XMonad.Layout.Tabbed
+import XMonad.Layout.ThreeColumns
 import XMonad.Prompt
 import XMonad.Prompt.Workspace
 import XMonad.Util.Run ( spawnPipe )
@@ -128,10 +130,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = fromList $
 
 -- ------------------------- Layout ------------------------- --
 myLayoutHook = smartBorders $ avoidStruts $
-               onWorkspace wkW Full $
-               onWorkspace wkC (GridRatio 1.3) $
+               onWorkspace wkW simpleTabbedBottom $
+               onWorkspace wkC (GridRatio 1.3 ||| Full) $
                ResizableTall 1 (3/100) (60/100) [1] |||
                Mirror (ResizableTall 1 (3/100) (60/100) [1]) |||
+               ThreeCol 1 (3/100) (1/2) |||
                Full
 
 -- ------------------- Window management -------------------- --
