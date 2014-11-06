@@ -17,6 +17,7 @@ Bundle 'chriskempson/base16-vim'
 Bundle 'vim-scripts/winter.vim'
 Bundle 'vim-scripts/biogoo.vim'
 Bundle 'fuqinho/vim-colors-graycier'
+Bundle 'nice/sweater'
 Bundle 'skammer/vim-css-color'
 Bundle 'tpope/vim-fugitive'
 Bundle 'ludovicchabant/vim-lawrencium'
@@ -40,6 +41,7 @@ Bundle 'sfiera/vim-emacsmodeline'
 Bundle 'bkad/CamelCaseMotion'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
 Plugin 'wting/rust.vim'
+Plugin 'honza/dockerfile.vim'
 
 "call pathogen#infect() 
 
