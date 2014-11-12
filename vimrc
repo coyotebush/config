@@ -42,6 +42,7 @@ Bundle 'bkad/CamelCaseMotion'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
 Plugin 'wting/rust.vim'
 Plugin 'honza/dockerfile.vim'
+Plugin 'airblade/vim-gitgutter'
 
 "call pathogen#infect() 
 
@@ -58,6 +59,9 @@ nmap <leader>sc :SyntasticCheck<cr>
 
 nmap <leader>t :TlistToggle<cr>
 let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+
+nmap <leader>gg :GitGutterSignsToggle<cr>
+nmap <leader>gh :GitGutterLineHighlightsToggle<cr>
 
 let g:LatexBox_Folding=1
 let g:LatexBox_latexmk_preview_continuously=1
