@@ -21,3 +21,6 @@
 	default = matching
 [diff]
 	tool = vimdiff
+	guitool = gvimdiff
+[merge]
+	tool = vimdiff
