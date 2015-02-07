@@ -1,0 +1,11 @@
+[project]
+name = "config"
+version = "0.0.0"
+authors = ["wtftw"]
+
+[dependencies.wtftw]
+git = "https://github.com/Kintaro/wtftw.git"
+
+[lib]
+name = "config"
+crate-type = ["dylib"]
