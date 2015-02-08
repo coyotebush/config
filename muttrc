@@ -1,0 +1,20 @@
+set mbox_type=Maildir
+set mark_old=no
+set header_cache=~/.cache/mutt
+set folder=$HOME/mail
+set spoolfile=+/INBOX
+set postponed=+/Drafts
+folder-hook . 'set record="^"'
+set index_format="%4C %Z %[%b %d] %-15.15F %s"
+set forward_format="Fwd: %s"
+
+set reverse_name
+set ssl_force_tls = yes
+
+set crypt_use_gpgme = yes
+set crypt_replysign = yes
+set crypt_replyencrypt = yes
+set crypt_replysignencrypted = yes
+set crypt_verify_sig = yes
+
+source ~/.muttrc.private
