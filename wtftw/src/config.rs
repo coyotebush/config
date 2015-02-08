@@ -160,13 +160,22 @@ pub extern fn configure(_: &mut WindowManager, w: &WindowSystem, config: &mut Co
             };
             let content = format!("{} {} {}", workspaces, m.workspaces.current.workspace.layout.description(), name);
             debug!("writing to xmobar: {}", content);
-            match p.write().unwrap().stdin.as_mut() {
-                Some(pin) => match pin.write_line(content.as_slice()) {
-                    _ => ()
+            match p.write() {
+                Ok(ref mut pl) => {
+                    debug!("got lock");
+                    match pl.stdin.as_mut() {
+                        Some(pin) => {
+                            debug!("got stdin");
+                            match pin.write_line(content.as_slice()) {
+                                Ok(_) => debug!("wrote"),
+                                Err(_) => debug!("bad write")
+                            }
+                        },
+                        None => debug!("no stdin")
+                    }
                 },
-                _ => ()
+                Err(_) => debug!("poisoned lock")
             }
-            debug!("done writing to xmobar");
         });
     };
 }
