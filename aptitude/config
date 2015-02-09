@@ -1,0 +1,7 @@
+aptitude "";
+aptitude::Keep-Unused-Pattern "";
+aptitude::Delete-Unused-Pattern "";
+aptitude::UI "";
+aptitude::UI::Minibuf-Prompts "true";
+aptitude::UI::Flat-View-As-First-View "true";
+aptitude::UI::Advance-On-Action "true";
