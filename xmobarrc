@@ -1,4 +1,4 @@
-Config { font = "xft:Inconsolata:size=11:antialias=true:style=bold"
+Config { font = "xft:Monospace:size=11:antialias=true:style=bold"
        , bgColor = "#2a2a2a"
        , fgColor = "grey"
        , position = TopW L 100
