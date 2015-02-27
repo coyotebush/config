@@ -23,7 +23,7 @@
     show_titlebar = False
     custom_command = /usr/bin/fish
     color_scheme = custom
-    font = Inconsolata Medium 11
+    font = Monospace 11
     background_color = "#1b1d1e"
     scrollback_lines = 5000
     scrollback_infinite = True
