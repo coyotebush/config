@@ -10,3 +10,7 @@ set __fish_git_prompt_char_stagedstate '→'
 set __fish_git_prompt_char_stashstate '↩'
 set __fish_git_prompt_char_upstream_ahead '↑'
 set __fish_git_prompt_char_upstream_behind '↓'
+
+if status --is-login
+  set -gx PATH $PATH $HOME/bin
+end
