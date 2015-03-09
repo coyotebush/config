@@ -44,6 +44,9 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'honza/dockerfile.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'jceb/vim-orgmode'
+Plugin 'tpope/vim-speeddating'
+Plugin 'tpope/vim-repeat'
+Plugin 'justinmk/vim-sneak'
 
 "call pathogen#infect() 
 
