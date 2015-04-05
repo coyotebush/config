@@ -6,12 +6,9 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.UrgencyHook
-import XMonad.Layout.Grid
 import XMonad.Layout.NoBorders
-import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Reflect
 import XMonad.Layout.ResizableTile
-import XMonad.Layout.Tabbed
 import XMonad.Layout.ThreeColumns
 import XMonad.Prompt
 import XMonad.Prompt.Workspace
@@ -19,10 +16,16 @@ import XMonad.Util.Run ( spawnPipe )
 import qualified XMonad.StackSet as W
 import Control.Monad ( when, void )
 import Data.Map ( fromList )
+import Data.Maybe ( mapMaybe )
 import System.IO ( hPutStrLn )
 import System.Exit ( exitSuccess )
 import System.Posix.Process ( executeFile )
 import System.Posix.Directory ( changeWorkingDirectory )
+
+-- ~/.xmonad/lib/Topics.hs should export:
+-- topics :: [(String, FilePath, Maybe String)] of (name, dir, cmd)
+-- topicLayouts, which modifies a layout hook using onWorkspace
+import Topics
 
 main = do
        checkTopicConfig myTopics myTopicConfig
@@ -41,26 +44,16 @@ main = do
         }
 
 -- -------------------------- Workspaces -------------------- --
-wkW = "w"; wkC = "c"
-myTopics = ["1", wkW, wkC, "s"
-           , "430", "464"
-           , "present", "hack"
-           ]
+myTopics = map (\ (n, _, _) -> n) topics
 
 myTopicConfig = defaultTopicConfig
-  { topicDirs = fromList
-      [ ("430", "edu/2014/CPE430")
-      , ("464", "edu/2014/CPE464")
-      ]
-  , topicActions = fromList
-      [ (wkW, spawnBrowser)
-      , (wkC, spawn' "icedove")
-      , ("1", spawnFileBrowser)
-      , ("430", spawn' "drracket")
-      , ("present", return ())
-      ]
+  { topicDirs          = fromList $ map getTopicDir topics
+  , topicActions       = fromList $ mapMaybe getTopicAction topics
   , defaultTopicAction = const $ spawnShell
   }
+  where getTopicDir (tn, td, _) = (tn, td)
+        getTopicAction (tn, _, (Just tc)) = Just (tn, (spawnInCurrent tc))
+        getTopicAction _ = Nothing
 
 
 -- -------------------------- Keys -------------------------- --
@@ -130,9 +123,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = fromList $
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
 -- ------------------------- Layout ------------------------- --
-myLayoutHook = smartBorders $ avoidStruts $
-               onWorkspace wkW simpleTabbedBottom $
-               onWorkspace wkC (GridRatio 1.3 ||| Full) $
+myLayoutHook = smartBorders $ avoidStruts $ topicLayouts $
                ResizableTall 1 (3/100) (60/100) [1] |||
                Mirror (ResizableTall 1 (3/100) (60/100) [1]) |||
                ThreeCol 1 (3/100) (1/2) |||
@@ -194,6 +185,7 @@ spawnFileBrowser = spawnInCurrent "thunar"
 spawnShell = spawnInCurrent myTerminal
 spawnEditor = spawnInCurrent "gvim"
 
+spawnInCurrent :: String -> X ()
 spawnInCurrent cmd = currentTopicDir myTopicConfig >>= (spawnIn cmd)
 
 spawn' :: String -> X ()
