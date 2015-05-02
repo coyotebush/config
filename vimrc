@@ -47,6 +47,7 @@ Plugin 'jceb/vim-orgmode'
 Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-repeat'
 Plugin 'justinmk/vim-sneak'
+Plugin 'mustache/vim-mustache-handlebars'
 
 "call pathogen#infect() 
 
