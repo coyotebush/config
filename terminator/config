@@ -5,7 +5,11 @@
   inactive_color_offset = 1.0
   title_inactive_bg_color = "#000000"
 [keybindings]
+  go_left = <Shift><Alt>Left
+  go_down = <Shift><Alt>Down
   hide_window = <Shift><Control>a
+  go_right = <Shift><Alt>Right
+  go_up = <Shift><Alt>Up
 [profiles]
   [[default]]
     foreground_color = "#d8d8d8"
