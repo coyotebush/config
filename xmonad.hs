@@ -23,7 +23,7 @@ import System.Posix.Process ( executeFile )
 import System.Posix.Directory ( changeWorkingDirectory )
 
 -- ~/.xmonad/lib/Topics.hs should export:
--- topics :: [(String, FilePath, Maybe String)] of (name, dir, cmd)
+-- topics :: [(String, FilePath, Maybe [String])] of (name, dir, cmd)
 -- topicLayouts, which modifies a layout hook using onWorkspace
 import Topics
 
@@ -52,7 +52,7 @@ myTopicConfig = defaultTopicConfig
   , defaultTopicAction = const $ spawnShell
   }
   where getTopicDir (tn, td, _) = (tn, td)
-        getTopicAction (tn, _, (Just tc)) = Just (tn, (spawnInCurrent tc))
+        getTopicAction (tn, _, (Just tc)) = Just (tn, (mapM_ spawnInCurrent tc))
         getTopicAction _ = Nothing
 
 
