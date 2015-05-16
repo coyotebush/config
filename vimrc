@@ -49,6 +49,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'justinmk/vim-sneak'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'jaxbot/semantic-highlight.vim'
+Plugin 'derekwyatt/vim-scala'
 
 "call pathogen#infect() 
 
