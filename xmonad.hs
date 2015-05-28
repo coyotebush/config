@@ -100,6 +100,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = fromList $
     , ((modm .|. mod1Mask,  xK_s     ), spawn "autorandr")
     , ((modm,               xK_b     ), spawnBrowser)
     , ((modm .|. shiftMask, xK_b     ), spawnFileBrowser)
+    , ((modm .|. mod1Mask,  xK_b     ), spawn "btheadset")
     , ((modm,               xK_d     ), spawnEditor)
     , ((modm,               xK_x     ), spawn "galculator")
     , ((modm,               xK_a     ), spawn "notify-send \"$(date)\"")
