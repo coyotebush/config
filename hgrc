@@ -25,11 +25,6 @@ vimdiff.args = -f -d $base $local $output $other +close +close
 color =
 mq =
 record =
-mqext = ~/.hgext/mqext
-crecord = ~/.hgext/crecord
-bzexport = ~/.hgext/bzexport
-qimportbz = ~/.hgext/qimportbz
-prompt = ~/.hgext/prompt.py
 
 [mqext]
 mqcommit = auto
