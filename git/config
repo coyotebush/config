@@ -18,9 +18,11 @@
 [github]
 	user = coyotebush
 [push]
-	default = matching
+	default = upstream
 [diff]
 	tool = vimdiff
 	guitool = gvimdiff
 [merge]
 	tool = vimdiff
+[rebase]
+	autoSquash = true
