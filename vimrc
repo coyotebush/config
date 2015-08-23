@@ -51,6 +51,7 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'jaxbot/semantic-highlight.vim'
 Plugin 'cespare/vim-toml'
 Plugin 'derekwyatt/vim-scala'
+Plugin 'dag/vim-fish'
 
 "call pathogen#infect() 
 
