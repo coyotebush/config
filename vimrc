@@ -52,6 +52,7 @@ Plugin 'jaxbot/semantic-highlight.vim'
 Plugin 'cespare/vim-toml'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'dag/vim-fish'
+Plugin 'elixir-lang/vim-elixir'
 
 "call pathogen#infect() 
 
