@@ -26,3 +26,5 @@
 	tool = vimdiff
 [rebase]
 	autoSquash = true
+[include]
+  path = ~/.config/git/config.local
