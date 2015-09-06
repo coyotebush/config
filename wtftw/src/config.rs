@@ -1,26 +1,21 @@
-#![feature(unboxed_closures)]
-#![feature(macro_rules)]
-#![feature(plugin)]
-#![feature(box_syntax)]
 #[macro_use]
 #[macro_use]
 extern crate wtftw;
+extern crate wtftw_contrib;
 
-use std::fs::PathExt;
-use std::os::homedir;
-use std::ffi::CString;
 use std::io::Write;
-use std::path::Path;
+use std::fs::metadata;
 use std::env;
-use std::ffi::AsOsStr;
+use std::ops::Deref;
+//use std::ffi::AsOsStr;
 use wtftw::window_system::*;
 use wtftw::window_manager::*;
 use wtftw::handlers::default::*;
 use wtftw::config::*;
 use wtftw::util::*;
-use wtftw::layout::*;
-use wtftw::layout::Direction::*;
-use wtftw::layout::LayoutMessage::*;
+use wtftw::layout::Direction;
+use wtftw::layout::LayoutMessage;
+use wtftw_contrib::layout::*;
 
 #[no_mangle]
 pub extern fn configure(_: &mut WindowManager, w: &WindowSystem, config: &mut Config) {
@@ -30,18 +25,18 @@ pub extern fn configure(_: &mut WindowManager, w: &WindowSystem, config: &mut Co
     config.general.border_color = 0x20242c;
     config.general.focus_border_color = 0xb3b8c4;
     config.general.border_width = 1;
-    config.general.terminal = (String::from_str("xterm"), String::from_str(""));
-    config.general.launcher = String::from_str("gmrun");
+    config.general.terminal = (String::from("xterm"), String::from(""));
+    config.general.launcher = String::from("gmrun");
     config.general.layout = LayoutCollection::new(vec!(
         GapLayout::new(10, AvoidStrutsLayout::new(vec!(Direction::Up, Direction::Down), ResizableTallLayout::new())),
         GapLayout::new(10, AvoidStrutsLayout::new(vec!(Direction::Up, Direction::Down), MirrorLayout::new(ResizableTallLayout::new()))),
         GapLayout::new(10, AvoidStrutsLayout::new(vec!(Direction::Up, Direction::Down), CenterLayout::new(ResizableTallLayout::new()))),
         GapLayout::new(10, AvoidStrutsLayout::new(vec!(Direction::Up, Direction::Down), BinarySpacePartition::new())),
         GapLayout::new(10, AvoidStrutsLayout::new(vec!(Direction::Up, Direction::Down), MirrorLayout::new(BinarySpacePartition::new()))),
-        NoBordersLayout::new(box FullLayout)));
+        NoBordersLayout::new(Box::new(FullLayout))));
 
     config.general.tags = (vec!("1", "www", "comm", "sys", "5", "6", "7", "8", "9"))
-        .into_iter().map(String::from_str).collect();
+        .into_iter().map(String::from).collect();
 
     // Register key handlers
 
@@ -52,18 +47,18 @@ pub extern fn configure(_: &mut WindowManager, w: &WindowSystem, config: &mut Co
     add_key_handler_str!(config, w, "Space",  MOD1MASK,         start_launcher);
 
     // Focus and window movement
-    add_key_handler_str!(config, w, "j", modm,             |m, w, c| m.windows(w, c, |x| x.focus_down()));
-    add_key_handler_str!(config, w, "k", modm,             |m, w, c| m.windows(w, c, |x| x.focus_up()));
-    add_key_handler_str!(config, w, "Tab", modm,           |m, w, c| m.windows(w, c, |x| x.focus_down()));
-    add_key_handler_str!(config, w, "Tab", modm | SHIFTMASK, |m, w, c| m.windows(w, c, |x| x.focus_up()));
-    add_key_handler_str!(config, w, "j", modm | SHIFTMASK, |m, w, c| m.windows(w, c, |x| x.swap_down()));
-    add_key_handler_str!(config, w, "k", modm | SHIFTMASK, |m, w, c| m.windows(w, c, |x| x.swap_up()));
-    add_key_handler_str!(config, w, "grave", modm,         |m, w, c| m.windows(w, c, |x| x.swap_master()));
-    add_key_handler_str!(config, w, "c", modm, |m, w, c| m.kill_window(w).windows(w, c, |x| x.clone()));
+    add_key_handler_str!(config, w, "j", modm,             |m, w, c| m.windows(w.deref(), c, &|x| x.focus_down()));
+    add_key_handler_str!(config, w, "k", modm,             |m, w, c| m.windows(w.deref(), c, &|x| x.focus_up()));
+    add_key_handler_str!(config, w, "Tab", modm,           |m, w, c| m.windows(w.deref(), c, &|x| x.focus_down()));
+    add_key_handler_str!(config, w, "Tab", modm | SHIFTMASK, |m, w, c| m.windows(w.deref(), c, &|x| x.focus_up()));
+    add_key_handler_str!(config, w, "j", modm | SHIFTMASK, |m, w, c| m.windows(w.deref(), c, &|x| x.swap_down()));
+    add_key_handler_str!(config, w, "k", modm | SHIFTMASK, |m, w, c| m.windows(w.deref(), c, &|x| x.swap_up()));
+    add_key_handler_str!(config, w, "grave", modm,         |m, w, c| m.windows(w.deref(), c, &|x| x.swap_master()));
+    add_key_handler_str!(config, w, "c", modm, |m, w, c| m.kill_window(w.deref()).windows(w.deref(), c, &|x| x.clone()));
 
     add_key_handler_str!(config, w, "t", modm, |m, w, c| {
         match m.workspaces.peek() {
-            Some(window) => m.windows(w, c, |x| x.sink(window)),
+            Some(window) => m.windows(w.deref(), c, &|x| x.sink(window)),
             None => m.clone()
         }
     });
@@ -93,10 +88,10 @@ pub extern fn configure(_: &mut WindowManager, w: &WindowSystem, config: &mut Co
 
     // Workspace switching and moving
     for i in (1usize..10) {
-        add_key_handler_str!(config, w, i.to_string().as_slice(), modm,
+        add_key_handler_str!(config, w, &i.to_string(), modm,
         move |m, w, c| switch_to_workspace(m, w, c, i - 1));
 
-        add_key_handler_str!(config, w, i.to_string().as_slice(), modm | SHIFTMASK,
+        add_key_handler_str!(config, w, &i.to_string(), modm | SHIFTMASK,
         move |m, w, c| move_window_to_workspace(m, w, c, i - 1));
     }
 
@@ -112,32 +107,23 @@ pub extern fn configure(_: &mut WindowManager, w: &WindowSystem, config: &mut Co
 
     add_mouse_handler!(config, BUTTON1, modm,
                        |m, w, c, s| {
-                           m.focus(s, w, c).mouse_move_window(w, c, s).windows(w, c, |x| x.shift_master())
+                           m.focus(s, w.deref(), c).mouse_move_window(w.deref(), c, s).windows(w.deref(), c, &|x| x.shift_master())
                        });
     add_mouse_handler!(config, BUTTON3, modm,
                        |m, w, c, s| {
-                           m.focus(s, w, c).mouse_resize_window(w, c, s).windows(w, c, |x| x.shift_master())
+                           m.focus(s, w.deref(), c).mouse_resize_window(w.deref(), c, s).windows(w.deref(), c, &|x| x.shift_master())
                        });
-
-    // Place specific applications on specific workspaces
-    config.set_manage_hook(box |workspaces, window_system, window| {
-        match window_system.get_class_name(window).as_slice() {
-            "MPlayer" => spawn_on(workspaces, window_system, window, 3),
-            "vlc"     => spawn_on(workspaces, window_system, window, 3),
-            _         => workspaces.clone()
-        }
-    });
 
     // Xmobar handling and formatting
     let home_dir = env::home_dir().unwrap();
     let home = home_dir.as_os_str().to_str().unwrap();
     let xmobar_config = format!("{}/.xmobarrc", home);
 
-    if Path::new(&xmobar_config.clone()).is_file() {
+    if metadata(&xmobar_config).map(|s| s.is_file()).unwrap_or(false) {
         let mut xmobar = spawn_pipe(config, "xmobar",
                                     vec!(xmobar_config));
         let tags = config.general.tags.clone();
-        config.set_log_hook(box move |m, w| {
+        config.set_log_hook(Box::new(move |m, w| {
             let p = &mut xmobar;
             let tags = &tags;
             let workspaces = tags.clone().iter()
@@ -149,25 +135,27 @@ pub extern fn configure(_: &mut WindowManager, w: &WindowSystem, config: &mut Co
                 } else {
                     format!("{}", x)
                 })
-                .fold(String::from_str(""), |a, x| {
+                .fold(String::from(""), |a, x| {
                     let mut r = a.clone();
-                    r.push_str(x.as_slice());
+                    r.push_str(&x);
                     r.push_str(" ");
                     r
                 });
 
             let name = match m.workspaces.peek() {
-                None => String::from_str(""),
+                None => String::from(""),
                 Some(window) => w.get_window_name(window)
             };
             let content = format!("{} {} {}\n", workspaces, m.workspaces.current.workspace.layout.description(), name);
             match p.write().unwrap().stdin.as_mut() {
                 Some(pin) => {
-                    pin.write(content.as_bytes());
-                    pin.flush();
+                    match pin.write(content.as_bytes()) {
+                        _      => ()
+                    };
+                    pin.flush().unwrap();
                 },
                 _ => ()
             }
-        });
+        }));
     };
 }
