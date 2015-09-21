@@ -23,7 +23,7 @@ Config { font = "xft:Monospace:size=11:antialias=true:style=bold"
                         , "--low", "red"
                         , "--normal", "yellow"
                         ] 120
-                    , Run Weather "KSEA"
+                    , Run Weather "KSBP"
                         [ "-t", "<tempF>F"
                         , "-L", "65"
                         , "-H", "85"
@@ -33,5 +33,5 @@ Config { font = "xft:Monospace:size=11:antialias=true:style=bold"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }{%wlan0wi% %wlan0% | %cpu% | %memory% | %battery% | %thermal0% | %KSEA% <fc=#ff6666>%mail%</fc> <fc=#ee9a00>%date%</fc> "
+       , template = " %StdinReader% }{%wlan0wi% %wlan0% | %cpu% | %memory% | %battery% | %thermal0% | %KSBP% <fc=#ff6666>%mail%</fc> <fc=#ee9a00>%date%</fc> "
        }
