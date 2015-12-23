@@ -136,9 +136,9 @@ myLayoutHook = smartBorders $ avoidStruts $ topicLayouts $
 
 -- ------------------- Window management -------------------- --
 myManageHook = composeAll . concat $
-               [ [ isApp c                 --> doFloat     | c <- myFloatApps      ]
-               , [ isApp c <&&> title =? t --> doFloat     | (c, t) <- myFloatWins ]
-               , [ isApp c                 --> doIgnore    | c <- myIgnores        ]
+               [ [ isApp c                 --> doCenterFloat | c <- myFloatApps      ]
+               , [ isApp c <&&> title =? t --> doCenterFloat | (c, t) <- myFloatWins ]
+               , [ isApp c                 --> doIgnore      | c <- myIgnores        ]
                --, [ title =? "googleearth-bin" --> doIgnore                        ]
                , [ isFullscreen            --> doFullFloat                        ]
                , [ isApp "gnome-mplayer" <&&> title =? "Gnome MPlayer Fullscreen"
