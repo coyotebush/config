@@ -13,10 +13,11 @@ import XMonad.Layout.ThreeColumns
 import XMonad.Prompt
 import XMonad.Prompt.Workspace
 import XMonad.Util.Run ( spawnPipe )
+import XMonad.Util.Dmenu
 import qualified XMonad.StackSet as W
 import Control.Monad ( when, void )
 import Data.Map ( fromList )
-import Data.Maybe ( mapMaybe )
+import Data.Maybe ( fromMaybe, mapMaybe )
 import System.IO ( hPutStrLn )
 import System.Exit ( exitSuccess )
 import System.Posix.Process ( executeFile )
@@ -89,8 +90,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = fromList $
     , ((modm,               xK_space ), workspacePrompt defaultXPConfig (switchTopic myTopicConfig))
     , ((modm .|. shiftMask, xK_space ), workspacePrompt defaultXPConfig $ windows . W.shift)
 
-    , ((modm .|. mod1Mask .|. shiftMask, xK_Escape), io exitSuccess)
-    , ((modm .|. mod1Mask,  xK_Escape), spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi")
+    , ((modm .|. shiftMask, xK_Escape), confirmActions $ [ ("shutdown", spawn "systemctl poweroff")
+                                                         , ("exit", io exitSuccess)
+                                                         , ("cancel", return ())
+                                                         ])
+    , ((modm,               xK_Escape), spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi")
     
     , ((modm,               xK_Print ), spawn "scrot")
     , ((modm .|. shiftMask, xK_Print ), spawn "scrot -u")
@@ -196,4 +200,9 @@ spawnIn :: String -> Dir -> X ()
 spawnIn cmd dir = void $ xfork $ do
                     when (not $ null dir) $ changeWorkingDirectory dir
                     executeFile cmd True [] Nothing
+
+confirmActions :: [(String, X ())] -> X ()
+confirmActions as = do
+                    s <- dmenu (map fst as)
+                    fromMaybe (return ()) $ lookup s as
 
