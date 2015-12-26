@@ -1,0 +1,13 @@
+*background: #202020
+*foreground: #ffffff
+/* URxvt.font: xft:Inconsolata:size=11 */
+/* *.font: -*-profont-*-*-*-*-11-*-*-*-*-*-*-* */
+*.font: -*-neep-medium-*-*-*-11-*-*-*-*-*-*-*
+URxvt.font: -*-neep-medium-*-*-*-11-*-*-*-*-*-*-*
+URxvt.boldFont:  -*-neep-bold-*-*-*-11-*-*-*-*-*-*-*
+URxvt.scrollTtyOutput: false
+URxvt.scrollBar: false
+
+xscreensaver.*.*Font:  -*-neep-medium-*-*-*-11-*-*-*-*-*-*-*
+xscreensaver.passwd.heading.label:
+xscreensaver.Dialog.shadowThickness: 1

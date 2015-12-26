@@ -1,4 +1,4 @@
-Config { font = "xft:Monospace:size=11:antialias=true:style=bold"
+Config { font = "-*-neep-medium-*-*-*-11-*-*-*-*-*-*-*"
        , bgColor = "#2a2a2a"
        , fgColor = "grey"
        , position = TopW L 100
@@ -33,5 +33,5 @@ Config { font = "xft:Monospace:size=11:antialias=true:style=bold"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }{%wlan0wi% %wlan0% | %cpu% | %memory% | %battery% | %thermal0% | %KSBP% <fc=#ff6666>%mail%</fc> <fc=#ee9a00>%date%</fc> "
+       , template = "%StdinReader% }{%wlan0wi% %wlan0% | %cpu% | %memory% | %battery% | %thermal0% | %KSBP% <fc=#ff6666>%mail%</fc> <fc=#ee9a00>%date%</fc>"
        }
