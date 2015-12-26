@@ -34,7 +34,7 @@ main = do
        xmproc <- spawnPipe "xmobar"
        xmonad $ ewmh $ withMyUrgencyHook defaultConfig
         { modMask     = mod4Mask
-        , borderWidth = 2
+        , borderWidth = 1
         , normalBorderColor  = "#2a2a2a"
         , focusedBorderColor = "#0099ff"
         , terminal    = myTerminal
@@ -185,7 +185,7 @@ withMyUrgencyHook = withUrgencyHookC
                       urgencyConfig { suppressWhen = Focused }
 
 -- --------------------- Helpers ---------------------------- --
-myTerminal = "terminator"
+myTerminal = "urxvt"
 spawnBrowser = spawn' "firefox"
 spawnFileBrowser = spawnInCurrent ("thunar", [])
 spawnShell = spawnInCurrent (myTerminal, [])
