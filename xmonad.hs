@@ -24,7 +24,8 @@ import System.Posix.Process ( executeFile )
 import System.Posix.Directory ( changeWorkingDirectory )
 
 -- ~/.xmonad/lib/Topics.hs should export:
--- topics :: [(String, FilePath, Maybe [String])] of (name, dir, cmd)
+-- topics :: [(String, FilePath, Maybe [(String, [String])])]
+--   of (name, dir, (cmd, args))
 -- topicLayouts, which modifies a layout hook using onWorkspace
 import Topics
 
@@ -186,20 +187,20 @@ withMyUrgencyHook = withUrgencyHookC
 -- --------------------- Helpers ---------------------------- --
 myTerminal = "terminator"
 spawnBrowser = spawn' "firefox"
-spawnFileBrowser = spawnInCurrent "thunar"
-spawnShell = spawnInCurrent myTerminal
-spawnEditor = spawnInCurrent "gvim"
+spawnFileBrowser = spawnInCurrent ("thunar", [])
+spawnShell = spawnInCurrent (myTerminal, [])
+spawnEditor = spawnInCurrent ("gvim", [])
 
-spawnInCurrent :: String -> X ()
-spawnInCurrent cmd = currentTopicDir myTopicConfig >>= (spawnIn cmd)
+spawnInCurrent :: (String, [String]) -> X ()
+spawnInCurrent (cmd, args) = currentTopicDir myTopicConfig >>= (spawnIn cmd args)
 
 spawn' :: String -> X ()
 spawn' cmd = void $ xfork $ executeFile cmd True [] Nothing
 
-spawnIn :: String -> Dir -> X ()
-spawnIn cmd dir = void $ xfork $ do
+spawnIn :: String -> [String] -> Dir -> X ()
+spawnIn cmd args dir = void $ xfork $ do
                     when (not $ null dir) $ changeWorkingDirectory dir
-                    executeFile cmd True [] Nothing
+                    executeFile cmd True args Nothing
 
 confirmActions :: [(String, X ())] -> X ()
 confirmActions as = do
