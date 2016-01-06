@@ -6,7 +6,9 @@
 URxvt.font: -*-neep-medium-*-*-*-11-*-*-*-*-*-*-*
 URxvt.boldFont:  -*-neep-bold-*-*-*-11-*-*-*-*-*-*-*
 URxvt.scrollTtyOutput: false
+URxvt.scrollTtyKeypress: true
 URxvt.scrollBar: false
+URxvt*color12: rgb:5c/5c/ff
 
 xscreensaver.*.*Font:  -*-neep-medium-*-*-*-11-*-*-*-*-*-*-*
 xscreensaver.passwd.heading.label:
