@@ -105,13 +105,16 @@ set laststatus=2
 set background=dark
 colorscheme desert
 
+if has('gui_running') || &term == 'rxvt-unicode'
+	colorscheme darkspectrum
+endif
+
 if has('gui_running')
 	if has('mac')
 		set guifont=Inconsolata:h14
 	else
 		set guifont=Monospace\ 11
 	endif
-	colorscheme darkspectrum
 	set guioptions-=T
 endif
 
