@@ -150,8 +150,6 @@ myManageHook = composeAll . concat $
                  myFloatApps = ["Pidgin"
                                ,"skype"
                                ,"xpad"
-                               ,"gimp"
-                               ,"gimp-2.6"
                                ,"xfrun4"
                                ,"galculator"
                                ,"pinentry"
