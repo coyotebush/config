@@ -17,11 +17,15 @@ Config { font = "-*-neep-medium-*-*-*-11-*-*-*-*-*-*-*"
                         , "--high" ,"red"
                         ] 30
                     , Run Battery
-                        [ "-t", "<left>% (<timeleft>)"
+                        [ "-t", "<acstatus><left>% (<timeleft>)"
                         , "-L", "20"
                         , "-H", "50"
                         , "--low", "red"
                         , "--normal", "yellow"
+                        , "--"
+                        , "-O", "Chg "
+                        , "-i", ""
+                        , "-o", ""
                         ] 120
                     , Run Weather "KSBP"
                         [ "-t", "<tempF>F"
