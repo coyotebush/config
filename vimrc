@@ -81,6 +81,7 @@ let g:LatexBox_latexmk_async=1
 " Behavior {{{1
 set mouse=a
 set vb
+set splitbelow splitright
 let &sh='bash'
 
 set clipboard=autoselect
