@@ -1,12 +1,17 @@
 set mbox_type=Maildir
 set mark_old=no
+set sort_aux=last-date-received
+set tilde
 set header_cache=~/.cache/mutt
 set folder=$HOME/mail
 set spoolfile=+/INBOX
 set postponed=+/Drafts
 folder-hook . 'set record="^"'
-set index_format="%4C %Z %[%b %d] %-15.15F %s"
+set index_format="%4C %Z %[%b %d %H:%M] %-15.15F %s"
 set forward_format="Fwd: %s"
+
+macro index O "<shell-escape>offlineimap -o<enter>"         "sync maildir and run offlineimap to sync all mail"
+macro index o "<shell-escape>offlineimap -oqf INBOX<enter>" "sync maildir and run offlineimap to sync inbox"
 
 set reverse_name
 set ssl_force_tls = yes
