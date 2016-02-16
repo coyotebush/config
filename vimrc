@@ -24,12 +24,12 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'gregsexton/gitv'
 Plugin 'kien/ctrlp.vim'
 Plugin 'ludovicchabant/vim-lawrencium'
+Plugin 'majutsushi/tagbar'
 Plugin 'mattn/gist-vim'
 Plugin 'mattn/webapi-vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/syntastic'
-Plugin 'taglist.vim'
 Plugin 'tpope/vim-fugitive'
 
 " Colors {{{2
@@ -68,8 +68,7 @@ nmap <leader>sc :SyntasticCheck<cr>
 
 nmap <leader>ss :SemanticHighlightToggle<cr>
 
-nmap <leader>t :TlistToggle<cr>
-let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+nmap <leader>t :TagbarToggle<cr>
 
 nmap <leader>gg :GitGutterSignsToggle<cr>
 nmap <leader>gh :GitGutterLineHighlightsToggle<cr>
