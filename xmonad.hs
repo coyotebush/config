@@ -9,6 +9,7 @@ import XMonad.Hooks.UrgencyHook
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Reflect
 import XMonad.Layout.ResizableTile
+import XMonad.Layout.Tabbed
 import XMonad.Layout.ThreeColumns
 import XMonad.Prompt
 import XMonad.Prompt.Workspace
@@ -34,7 +35,7 @@ main = do
        xmproc <- spawnPipe "xmobar"
        xmonad $ ewmh $ withMyUrgencyHook defaultConfig
         { modMask     = mod4Mask
-        , borderWidth = 1
+        , borderWidth = 2
         , normalBorderColor  = "#2a2a2a"
         , focusedBorderColor = "#0099ff"
         , terminal    = myTerminal
@@ -130,10 +131,26 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = fromList $
 
 -- ------------------------- Layout ------------------------- --
 myLayoutHook = smartBorders $ avoidStruts $ topicLayouts $
+               tabbed shrinkText myTabTheme |||
                ResizableTall 1 (3/100) (60/100) [1] |||
                Mirror (ResizableTall 1 (3/100) (60/100) [1]) |||
-               ThreeCol 1 (3/100) (1/2) |||
-               Full
+               ThreeCol 1 (3/100) (1/2)
+
+myTabTheme = Theme { fontName            = "-*-neep-medium-*-*-*-11-*-*-*-*-*-*-*"
+                   , activeColor         = "#0099ff"
+                   , activeBorderColor   = "#0099ff"
+                   , activeTextColor     = "white"
+                   , inactiveColor       = "#2a2a2a"
+                   , inactiveBorderColor = "#2a2a2a"
+                   , inactiveTextColor   = "grey"
+                   , urgentColor         = "yellow"
+                   , urgentBorderColor   = "yellow"
+                   , urgentTextColor     = "red"
+                   , decoHeight          = 13
+                   , decoWidth           = 200
+                   , windowTitleAddons   = []
+                   , windowTitleIcons    = []
+                   }
 
 -- ------------------- Window management -------------------- --
 myManageHook = composeAll . concat $
