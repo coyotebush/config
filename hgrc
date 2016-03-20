@@ -25,11 +25,10 @@ vimdiff.args = -f -d $base $local $output $other +close +close
 color =
 mq =
 record =
+bzexport = ~/.mozbuild/version-control-tools/hgext/bzexport
+bundleclone = ~/.mozbuild/version-control-tools/hgext/bundleclone
+push-to-try = ~/.mozbuild/version-control-tools/hgext/push-to-try
+qimportbz = ~/.mozbuild/version-control-tools/hgext/qimportbz
 
 [mqext]
 mqcommit = auto
-
-[diff]
-git = 1
-unified = 8
-showfunc = 1
