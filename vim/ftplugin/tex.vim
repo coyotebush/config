@@ -9,6 +9,10 @@ noremap <buffer> <silent> j gj
 noremap <buffer> <silent> 0 g0
 noremap <buffer> <silent> $ g$
 
+" autosave
+set updatetime=1000
+au CursorHold,BufLeave,FocusLost *.tex silent! wall
+
 " specifically for Latex-Suite
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
