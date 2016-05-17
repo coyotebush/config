@@ -143,7 +143,7 @@ end
 " Tab completion {{{1
 set wildmode=longest,list,full
 set wildmenu
-set wildignore+=*.hi
+set wildignore+=*.hi,*.aux,*.pdf
 
 " Per-directory configuration {{{1
 set exrc
