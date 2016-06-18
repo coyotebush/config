@@ -189,7 +189,7 @@ myManageHook = composeAll . concat $
 
 -- --------------------- Logging ---------------------------- --
 myLogHook xmproc = do
-                   updatePointer (TowardsCentre 0.3 0.3)
+                   updatePointer (0.5, 0.5) (0.3, 0.3)
                    dynamicLogWithPP $ xmobarPP
                      { ppOutput = hPutStrLn xmproc
                      , ppTitle  = xmobarColor "white" "" -- . shorten 70
