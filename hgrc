@@ -30,5 +30,3 @@ bundleclone = ~/.mozbuild/version-control-tools/hgext/bundleclone
 push-to-try = ~/.mozbuild/version-control-tools/hgext/push-to-try
 qimportbz = ~/.mozbuild/version-control-tools/hgext/qimportbz
 
-[mqext]
-mqcommit = auto
