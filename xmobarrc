@@ -27,7 +27,7 @@ Config { font = "-*-neep-medium-*-*-*-11-*-*-*-*-*-*-*"
                         , "-i", ""
                         , "-o", ""
                         ] 120
-                    , Run Weather "KSBP"
+                    , Run Weather "KBFI"
                         [ "-t", "<tempF>F"
                         , "-L", "65"
                         , "-H", "85"
@@ -37,5 +37,5 @@ Config { font = "-*-neep-medium-*-*-*-11-*-*-*-*-*-*-*"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{%wlan0wi% %wlan0% | %cpu% | %memory% | %battery% | %thermal0% | %KSBP% <fc=#ff6666>%mail%</fc> <fc=#ee9a00>%date%</fc>"
+       , template = "%StdinReader% }{%wlan0wi% %wlan0% | %cpu% | %memory% | %battery% | %thermal0% | %KBFI% <fc=#ff6666>%mail%</fc> <fc=#ee9a00>%date%</fc>"
        }
