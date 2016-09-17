@@ -4,7 +4,7 @@
 [core]
 	pager = less -F -X
 [alias]
-	st = status -s
+	st = status -sb
 	ci = commit -v
 	di = diff
 	co = checkout
