@@ -11,6 +11,6 @@ set __fish_git_prompt_char_stashstate '↩'
 set __fish_git_prompt_char_upstream_ahead '↑'
 set __fish_git_prompt_char_upstream_behind '↓'
 
-if status --is-login
+if status --is-login; and test -d "$HOME/bin"
   set -gx PATH $PATH $HOME/bin
 end
