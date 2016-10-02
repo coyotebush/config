@@ -3,11 +3,20 @@ Config { font = "-*-neep-medium-*-*-*-11-*-*-*-*-*-*-*"
        , fgColor = "grey"
        , position = TopW L 100
        , commands = [ Run StdinReader
-                    , Run Memory ["-t","<usedratio>%"] 30
                     , Run ThermalZone 0 ["-t", "<temp>C"] 120
                     , Run Date "%a %_d %H:%M" "date" 20
-                    , Run Network "wlan0" ["-t", "<rx>KB/<tx>KB"] 60
-                    , Run Wireless "wlan0" ["-t", "<essid> <quality>%"] 30
+                    , Run Network "wlan0"
+                        [ "-t", "<dev>: <rx>KB/<tx>KB"
+                        , "-m", "3"
+                        ] 60
+                    , Run Network "eth0"
+                        [ "-t", "<dev>: <rx>KB/<tx>KB"
+                        , "-m", "3"
+                        ] 60
+                    , Run Wireless "wlan0"
+                        [ "-t", "<essid> <quality>%"
+                        , "-p", "3"
+                        ] 30
                     , Run Mail [("INBOX ", "~/mail/INBOX")] "mail"
                     , Run Cpu
                         [ "-t", "<total>%"
@@ -15,7 +24,13 @@ Config { font = "-*-neep-medium-*-*-*-11-*-*-*-*-*-*-*"
                         , "-H" ,"50"
                         , "--normal", "green"
                         , "--high" ,"red"
+                        , "-p", "3"
                         ] 30
+                    , Run Memory
+                        [ "-t", "<usedratio>%"
+                        , "-p", "3"
+                        ]
+                        30
                     , Run Battery
                         [ "-t", "<acstatus><left>% (<timeleft>)"
                         , "-L", "20"
@@ -37,5 +52,5 @@ Config { font = "-*-neep-medium-*-*-*-11-*-*-*-*-*-*-*"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{%wlan0wi% %wlan0% | %cpu% | %memory% | %battery% | %thermal0% | %KBFI% <fc=#ff6666>%mail%</fc> <fc=#ee9a00>%date%</fc>"
+       , template = "%StdinReader% }{%eth0% | %wlan0% %wlan0wi% | %cpu% | %memory% | %battery% | %thermal0% | %KBFI% <fc=#ff6666>%mail%</fc> <fc=#ee9a00>%date%</fc>"
        }
