@@ -170,6 +170,7 @@ myManageHook = composeAll . concat $
                                ,"xfrun4"
                                ,"galculator"
                                ,"pinentry"
+                               ,"display"
                                ]
                  myFloatWins = [("dia",        "Dia v0.97.1"            )
                                ,("thunar",     "File Operation Progress")
