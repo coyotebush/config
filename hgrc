@@ -1,0 +1,32 @@
+[ui]
+#merge = internal:merge
+merge = vimdiff
+username = Corey Ford <corey@coreyford.name>
+
+[diff]
+git = 1
+showfunc = 1
+unified = 8
+
+[defaults]
+commit = -v
+diff = -p -U 8
+qdiff = -p -U 8
+qnew = -U
+
+[alias]
+qls = qseries -v -s
+
+[merge-tools]
+vimdiff.executable = /usr/local/bin/mvim
+vimdiff.args = -f -d $base $local $output $other +close +close
+
+[extensions]
+color =
+mq =
+record =
+bzexport = ~/.mozbuild/version-control-tools/hgext/bzexport
+bundleclone = ~/.mozbuild/version-control-tools/hgext/bundleclone
+push-to-try = ~/.mozbuild/version-control-tools/hgext/push-to-try
+qimportbz = ~/.mozbuild/version-control-tools/hgext/qimportbz
+

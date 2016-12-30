@@ -1,0 +1,32 @@
+[user]
+	email = corey@coreyford.name
+	name = Corey Ford
+[core]
+	pager = less -F -X
+[alias]
+	st = status -sb
+	ci = commit -v
+	di = diff
+	co = checkout
+	br = branch
+	amend = commit --amend --no-edit
+	undo = reset --soft HEAD^
+	lg = log --graph --pretty=oneline --decorate --abbrev-commit --date=relative
+	lga = log --all --graph --pretty=oneline --decorate --abbrev-commit --date=relative
+	graphviz = "!f() { echo 'digraph git { ' ; git log --pretty='format: %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
+  this = symbolic-ref --short HEAD
+[color]
+	ui = true
+[github]
+	user = coyotebush
+[push]
+	default = upstream
+[diff]
+	tool = vimdiff
+	guitool = gvimdiff
+[merge]
+	tool = vimdiff
+[rebase]
+	autoSquash = true
+[include]
+  path = ~/.config/git/config.local
