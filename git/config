@@ -15,6 +15,8 @@
 	lga = log --all --graph --pretty=oneline --decorate --abbrev-commit --date=relative
 	graphviz = "!f() { echo 'digraph git { ' ; git log --pretty='format: %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
   this = symbolic-ref --short HEAD
+  wip = commit -am WIP --edit
+  fixup = "!f() { TARGET=$(git rev-parse "$1"); shift; git commit --fixup=$TARGET $@ && git rebase -i --autostash --autosquash $TARGET^; }; f"
 [color]
 	ui = true
 [github]
