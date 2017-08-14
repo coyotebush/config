@@ -157,10 +157,11 @@ myManageHook = composeAll . concat $
                [ [ isApp c                 --> doCenterFloat | c <- myFloatApps      ]
                , [ isApp c <&&> title =? t --> doCenterFloat | (c, t) <- myFloatWins ]
                , [ isApp c                 --> doIgnore      | c <- myIgnores        ]
-               --, [ title =? "googleearth-bin" --> doIgnore                        ]
-               , [ isFullscreen            --> doFullFloat                        ]
+               , [ isFullscreen            --> doFullFloat                           ]
                , [ isApp "gnome-mplayer" <&&> title =? "Gnome MPlayer Fullscreen"
-                                           --> doFullFloat                        ]
+                                           --> doFullFloat                           ]
+               , [ isApp "gnucash" <&&> isDialog
+                                           --> doCenterFloat                         ]
                ]
                where
                  isApp c = className =? c <||> resource =? c
@@ -177,7 +178,6 @@ myManageHook = composeAll . concat $
                                ,("thunar",     "File Operation Progress")
                                ,("mscore.real","MuseScore Startup"      )
                                ,("gnucash",    "GnuCash"                )
-                               ,("gnucash",    "Select a Budget"        )
                                ,("Iceweasel",  "Downloads"              )
                                ,("Iceweasel",  "Password Required"      )
                                ,("Icedove",    "Password Required"      )
