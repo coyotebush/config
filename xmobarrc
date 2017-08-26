@@ -8,11 +8,11 @@ Config { font = "-*-neep-medium-*-*-*-11-*-*-*-*-*-*-*"
                     , Run Network "wlan0"
                         [ "-t", "<dev>: <rx>KB/<tx>KB"
                         , "-m", "3"
-                        ] 60
+                        ] 10
                     , Run Network "eth0"
                         [ "-t", "<dev>: <rx>KB/<tx>KB"
                         , "-m", "3"
-                        ] 60
+                        ] 10
                     , Run Wireless "wlan0"
                         [ "-t", "<essid> <quality>%"
                         , "-p", "3"
@@ -25,7 +25,7 @@ Config { font = "-*-neep-medium-*-*-*-11-*-*-*-*-*-*-*"
                         , "--normal", "green"
                         , "--high" ,"red"
                         , "-p", "3"
-                        ] 30
+                        ] 10
                     , Run Memory
                         [ "-t", "<usedratio>%"
                         , "-p", "3"
