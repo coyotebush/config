@@ -17,6 +17,7 @@
   this = symbolic-ref --short HEAD
   wip = commit -am WIP --edit
   fixup = "!f() { TARGET=$(git rev-parse "$1"); shift; git commit --fixup=$TARGET $@ && git rebase -i --autostash --autosquash $TARGET^; }; f"
+  backdate = "!f() { DATE=$(stat -c '%y' "$1"); git commit -v --date=\"$DATE\" $@; }; f"
 [color]
 	ui = true
 [github]
