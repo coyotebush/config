@@ -178,9 +178,9 @@ myManageHook = composeAll . concat $
                                ,("thunar",     "File Operation Progress")
                                ,("mscore.real","MuseScore Startup"      )
                                ,("gnucash",    "GnuCash"                )
-                               ,("Iceweasel",  "Downloads"              )
-                               ,("Iceweasel",  "Password Required"      )
-                               ,("Icedove",    "Password Required"      )
+                               ,("Firefox",    "Downloads"              )
+                               ,("Firefox",    "Password Required"      )
+                               ,("Thunderbird","Password Required"      )
                                ,("claws-mail", "Error"                  )
                                ,("drracket",   "DrRacket 6.1"           )
                                ]
