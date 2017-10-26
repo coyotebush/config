@@ -56,6 +56,7 @@ Plugin 'pearofducks/ansible-vim'
 Plugin 'rust-lang/rust.vim'
 Plugin 'skammer/vim-css-color'
 Plugin 'tpope/vim-markdown'
+Plugin 'ledger/vim-ledger'
 
 " Plugin settings {{{1
 
