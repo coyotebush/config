@@ -44,8 +44,8 @@ Config { font = "-*-neep-medium-*-*-*-11-*-*-*-*-*-*-*"
                         ] 120
                     , Run Weather "KBFI"
                         [ "-t", "<tempF>F"
-                        , "-L", "65"
-                        , "-H", "85"
+                        , "-L", "50"
+                        , "-H", "70"
                         , "--low", "#6666ff"
                         , "--high", "red"
                         ] 3000
