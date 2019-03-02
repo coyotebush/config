@@ -151,7 +151,6 @@ set secure
 " Search {{{1
 set ignorecase
 set smartcase
-set gdefault
 set incsearch
 set hlsearch
 nnoremap <leader><space> :noh<cr>
