@@ -21,6 +21,7 @@ Plugin 'tpope/vim-surround'
 
 " Tools {{{2
 Plugin 'airblade/vim-gitgutter'
+Plugin 'airblade/vim-rooter'
 Plugin 'gregsexton/gitv'
 Plugin 'kien/ctrlp.vim'
 Plugin 'ludovicchabant/vim-lawrencium'
